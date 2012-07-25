@@ -27,7 +27,7 @@ h3 {
 	}
 	
 	#only_mobile {
-		display:inline !important;
+		display:block !important;
 	}
 }
 
