@@ -15,7 +15,7 @@ h3 {
 /* for iPhone */	
 @media screen and (max-device-width: 480px), screen and (max-width: 600px) {
 	h1 {
-		font-size: 14px !important;
+		font-size: 12px !important;
 	}
 	
 	h2 {
