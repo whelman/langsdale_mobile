@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 this is a file.
 langsdale has 5 levels
 1
@@ -7,8 +6,3 @@ langsdale has 5 levels
 4
 5
 I am becoming cranky
-=======
-this is a file.
-
-Bill just added this line! yay!
->>>>>>> More testing
