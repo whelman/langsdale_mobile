@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UHF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	<link rel="stylesheet" type="text/css" href="langsdale_on_the_go.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+    <title>Langsdale on the Go!</title>
+</head>
+<body>
+	<div data-role="page" id="index">
+
+		<div data-role="header" data-position="fixed">
+			<h1>Langsdale on the Go!</h1>
+		</div><!-- /header -->
+
+		<div data-role="content">
+			
+			<label for="search-basic"><h3>Search in Langsdale Library and beyond...<h3></label>
+			<!-- input type="search" name="search" id="search-basic" value="" / -->
+			
+			<!-- BEGIN worldcat.org search box -->			
+			<form name="wcfn" name="wcfn" id="wcfn" method="get" accept-charset="UTF-8" action="http://ubalt.worldcat.org/m/search" target="_top">
+				<input type="hidden" name="qt" value="affiliate_wcl_all" />
+				<input type="hidden" name="ai" value="wclocal_ubalt" />
+				<input type="search" name="q" id="search-basic" data-theme="d"/>
+			</form>
+			<!-- END worldcat.org search box -->
+			
+			<ul data-role="listview" data-inset="true" data-filter="false">
+				<!-- li data-role="list-divider">Langsdale On the Go!</li -->
+				<li>
+					<a href="#ask"><img src="images/m-ask.gif" class="ui-li-icon" alt="Ask a Librarian" />Ask a Librarian</a>
+				</li>
+				<li>
+					<a href="#directory"><img src="images/m-map.gif" class="ui-li-icon" alt="Langsdale Floor Plan" />Floor Directory</a>
+				</li>
+				<li>
+					<a href="#hours"><img src="images/m-hours.gif" class="ui-li-icon" alt="Hours and Locations" />Hours & Location</a>
+				</li>
+				<li>
+					<a href="#find_pc"><img src="images/m-findapc.gif" class="ui-li-icon" alt="Hours and Locations" />Find a PC </a>
+				</li>
+				<li id="only_mobile">
+					<a href="#how"><img src="images/m-howdoi.gif" class="ui-li-icon" alt="How do I...?" />How do I...?</a>
+				</li>
+				<li>
+					<a href="#about"><img src="images/m-about.gif" class="ui-li-icon" alt="About" />About</a>
+				</li>
+				<li>
+					<a href="#feedback"><img src="images/m-contact.gif" class="ui-li-icon" alt="About" />Feedback</a>
+				</li>
+			</ul>
+			
+		</div><!-- /content -->
+		
+		<div data-role="footer" data-position="fixed" data-id="myfooter">
+			<div data-role="navbar" data-iconpos="left">
+				<ul>
+					<li><a href="index.html" data-icon="home" class="ui-btn-active">Home</a></li>
+					<li><a href="http://langsdale.ubalt.edu" data-icon="grid" data-ajax="false">Full site</a></li> 
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer -->
+
+	</div><!-- /page -->
+	
+	
+	<!-- Start of ask page -->
+	<div data-role="page" id="ask">
+
+		<div data-role="header">
+			<h1>Langsdale on the Go!</h1>
+		</div><!-- /header -->
+
+		<div data-role="content">
+			<h2>ASK A LIBRARIAN</h2>
+			<iframe src="http://libraryh3lp.com/mobile/langsdale_mobile@chat.libraryh3lp.com?skin=3884" style="width: 100%; height:200px;"></iframe>
+			<h3>Langsdale Library</h3>
+			<p>1420 Maryland Avenue, Baltimore, MD 21201</p>
+			<table>
+				<tbody>
+					<tr>
+						<td><strong>Front Desk:</strong></td>
+						<td><a href="tel:4108374260">410.837.4260</a></td>
+					</tr>
+					<tr>
+						<td><strong>Office Fax Line:&nbsp;&nbsp;&nbsp;</strong></td>
+						<td><a href="tel:4108374330">410.837.4330</a></td>
+					</tr>					
+					<tr>
+						<td><strong>Circulation:</strong></td>
+						<td><a href="mailto:langcirc@ubalt.edu">langcirc@ubalt.edu</a></td>
+					</tr>
+						<td><strong>Reference:</strong></td>
+						<td><a href="mailto:langref@ubalt.edu">langref@ubalt.edu</a></td>
+					</tr>
+				</tbody>
+			</table>	
+
+		</div><!-- /content -->
+
+		<div data-role="footer" data-position="fixed" data-id="myfooter">
+			<div data-role="navbar" data-iconpos="left">
+				<ul>
+					<li><a href="index.html" data-icon="home">Home</a></li>
+					<li><a href="http://langsdale.ubalt.edu" data-icon="grid" data-ajax="false">Full site</a></li> 
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer -->
+	</div><!-- /page -->
+	
+	<!-- Start of directory page -->
+	<div data-role="page" id="directory">
+
+		<div data-role="header">
+			<h1>Floor Directory</h1>
+		</div><!-- /header -->
+
+		<div data-role="content">
+			<div data-role="collapsible-set">
+				<div data-role="collapsible">
+					<h3>4th floor - Special Collections</h3>
+					<p><img src= "images\map_f4_final.png" alt="Fouth floor map"  width="350"/></p>
+				</div>		
+				<div data-role="collapsible" >
+					<h3>3rd Floor - Books</h3>
+					<p><img src= "images\map_f3_final_blue.png" alt="Third floor map"  width="350"/></p>
+				</div>
+				<div data-role="collapsible">
+					<h3>2nd floor - Journals</h3>
+					<p><img src= "images\map_f2_final.png" alt="Second floor map"  width="350"/></p>
+				</div>
+				<div data-role="collapsible">
+					<h3>1st floor - Reference</h3>
+					<p><img src= "images\map_f1_final.png" alt="First floor map"  width="350"/></p>
+				</div>
+				<div data-role="collapsible">
+					<h3>Lower Level - Government Docs</h3>
+					<p><img class="icon" src= "images\map_ll_final.png" alt="Lower Level map"  width="350"/></p>
+				</div>
+			</div>
+		</div><!-- /content -->
+
+		<div data-role="footer" data-position="fixed" data-id="myfooter">
+			<div data-role="navbar" data-iconpos="left">
+				<ul>
+					<li><a href="index.html" data-icon="home">Home</a></li>
+					<li><a href="http://langsdale.ubalt.edu" data-icon="grid" data-ajax="false">Full site</a></li> 
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer -->
+	</div><!-- /page -->	
+
+	<!-- Start of hours page -->
+	<div data-role="page" id="hours">
+
+		<div data-role="header">
+			<h1>Hours & Location</h1>
+		</div><!-- /header -->
+
+		<div data-role="content">	
+
+		</div><!-- /content -->
+
+		<div data-role="footer">
+			<h4>UB Footer</h4>
+		</div><!-- /footer -->
+	</div><!-- /page -->
+	
+	<!-- Start of find_pc page -->
+	<div data-role="page" id="find_pc">
+
+		<div data-role="header">
+			<h1>Find a PC</h1>
+		</div><!-- /header -->
+
+		<div data-role="content">	
+
+		</div><!-- /content -->
+
+		<div data-role="footer">
+			<h4>UB Footer</h4>
+		</div><!-- /footer -->
+	</div><!-- /page -->
+	
+	<!-- Start of how page -->
+	<div data-role="page" id="how">
+
+		<div data-role="header">
+			<h1>How do I...</h1>
+		</div><!-- /header -->
+
+		<div data-role="content">	
+
+		</div><!-- /content -->
+
+		<div data-role="footer">
+			<h4>UB Footer</h4>
+		</div><!-- /footer -->
+	</div><!-- /page -->
+	
+	<!-- Start of about page -->
+	<div data-role="page" id="about">
+
+		<div data-role="header">
+			<h1>About</h1>
+		</div><!-- /header -->
+
+		<div data-role="content">	
+
+		</div><!-- /content -->
+
+		<div data-role="footer">
+			<h4>UB Footer</h4>
+		</div><!-- /footer -->
+	</div><!-- /page -->
+	
+	<!-- Start of feedback page -->
+	<div data-role="page" id="feedback">
+
+		<div data-role="header">
+			<h1>Feedback</h1>
+		</div><!-- /header -->
+
+		<div data-role="content">	
+
+		</div><!-- /content -->
+
+		<div data-role="footer">
+			<h4>UB Footer</h4>
+		</div><!-- /footer -->
+	</div><!-- /page -->
+</body>
+</html>
+

@@ -1,0 +1,43 @@
+h1 {
+}
+
+h2 {
+}
+
+h3 {
+
+}
+
+#only_mobile {
+	display:none !important;
+}
+
+/* for iPhone */	
+@media screen and (max-device-width: 480px), screen and (max-width: 600px) {
+	h1 {
+		font-size: 14px !important;
+	}
+	
+	h2 {
+		font-size: 16px !important;
+	}
+	
+	h3 {
+		font-size: 16px !important;
+	}
+	
+	#only_mobile {
+		display:inline !important;
+	}
+}
+
+/* for iPad*/
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+	
+}
+
+/* for larger Displays */
+@media screen and (min-width: 980px) {
+	
+}
