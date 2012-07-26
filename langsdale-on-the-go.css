@@ -16,6 +16,29 @@ h3 {
 	width:100% !important;
 }
 
+#floor1, #floor2, #floor3 {
+	font-size: 14px !important;
+}
+
+#ub_logo {
+	float:left !important;
+	margin:6px 0 0 10px;
+	display:inline-block !important;
+	position: absolute;
+}
+
+#ub_logo_text {
+	display:none !important;
+}
+
+#title_for_ipad {
+	display:none !important;
+}
+
+#title_for_the_rest {
+	display:block !important;
+}
+
 /* for iPhone */	
 @media screen and (max-device-width: 480px), screen and (max-width: 600px) {
 	h1 {
@@ -23,17 +46,32 @@ h3 {
 	}
 	
 	h2 {
-		font-size: 16px !important;
+		font-size: 12px !important;
 	}
 	
 	h3 {
-		font-size: 16px !important;
+		font-size: 12px !important;
 	}
 	
 	#only_mobile {
 		display:block !important;
 	}
 	
+	#floor1, #floor2, #floor3 {
+		font-size: 12px !important;
+	}
+	
+	#ub_logo {
+		display:none !important;
+	}
+
+	#ub_logo_text {
+		float:left !important;
+		font-size:14px;
+		line-height:14px;
+		margin:7px 0 0 10px !important;
+		display:block !important;
+	}
 
 }
 

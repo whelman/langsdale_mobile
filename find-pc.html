@@ -11,8 +11,8 @@
 		window.onload = updatePCavail;
 		function updatePCavail() {
 			xmlhttp = new XMLHttpRequest();
-			xmlhttp.open("GET","../m/xml/usage.xml",false);
-			//xmlhttp.open("GET","xml/usage.xml",false);
+			//xmlhttp.open("GET","../m/xml/usage.xml",false);
+			xmlhttp.open("GET","xml/usage.xml",false);
 			//xmlhttp.open("GET","http://www.ubalt.edu/mobilelabs/xml/usage.xml",false);
 			xmlhttp.setRequestHeader('Content-Type', 'text/xml');
 			xmlhttp.send("");
@@ -31,12 +31,12 @@
 			//alert("totalFloor1: "+totalFloor1+", "+"totalFloor2: "+totalFloor2+", "+"totalFloor3: "+totalFloor3);
 			var floor2avail=parseInt(floor2availA)+parseInt(floor2availB);
 			//alert(floor2inUse);
-			var data1floor=floor1avail+" / "+totalFloor1;
-			var data2floor=floor2avail+" / "+totalFloor2;
-			var data3floor=floor3avail+" / "+totalFloor3;
-			document.getElementById("1floor").innerHTML = data1floor;
-			document.getElementById("2floor").innerHTML = data2floor;
-			document.getElementById("3floor").innerHTML = data3floor;
+			var data1floor="Available "+floor1avail+" / Total "+totalFloor1;
+			var data2floor="Available "+floor2avail+" / Total "+totalFloor2;
+			var data3floor="Available "+floor3avail+" / Total "+totalFloor3;
+			document.getElementById("floor1").innerHTML = data1floor;
+			document.getElementById("floor2").innerHTML = data2floor;
+			document.getElementById("floor3").innerHTML = data3floor;
 		}
 	</script>
     <title>Find a PC</title>
@@ -49,21 +49,20 @@
 			<h1>Find a PC</h1>
 		</div><!-- /header -->
 
-		<div data-role="content">	
-			<h3>Find a PC in Langsdale</h3>
-			<ul data-role="listview" data-inset="true" data-theme="g" data-count-theme="b">
-				<li data-role="list-divider">Available Computers</li>
+		<div data-role="content">
+			<h3>Computers availability</h3>	
+			<ul data-role="listview" data-inset="true" data-theme="g" data-count-theme="c">
 				<li class="ui-body-c">
-						<h3>1st Floor</h3>
-						<span class="ui-li-count" id="1floor"></span>
+					<h3>First Floor</h3>
+					<span class="ui-li-count" id="floor1"></span>
 				</li>
 				<li class="ui-body-c">
-						<h3>2nd Floor</h3>
-						<span class="ui-li-count" id="2floor"></span>
+						<h3>Second Floor</h3>
+						<span class="ui-li-count" id="floor2"></span>
 				</li>
 				<li class="ui-body-c">
-						<h3>3rd Floor</h3>
-						<span class="ui-li-count" id="3floor"></span>
+						<h3>Third Floor</h3>
+						<span class="ui-li-count" id="floor3"></span>
 				</li>
 			</ul>			
 		</div><!-- /content -->
