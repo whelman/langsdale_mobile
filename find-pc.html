@@ -50,8 +50,18 @@
 		</div><!-- /header -->
 
 		<div data-role="content">
-			<h3>Computers availability</h3>	
-			<ul data-role="listview" data-inset="true" data-theme="g" data-count-theme="c">
+			
+			<div class="ui-grid-c">
+				<div class="ui-block-a"><h3 display="inline">Computers availability</h3></div>
+				<div class="ui-block-b"></div>
+				<div class="ui-block-c"></div>
+				<div class="ui-block-d" align="right"><br />Latest update at 9:23am</div>
+			</div><!-- /grid-b -->
+			
+			<br />
+			
+			<div>
+			<ul data-role="listview"  data-theme="g" data-count-theme="c">
 				<li class="ui-body-c">
 					<h3>First Floor</h3>
 					<span class="ui-li-count" id="floor1"></span>
@@ -64,7 +74,14 @@
 						<h3>Third Floor</h3>
 						<span class="ui-li-count" id="floor3"></span>
 				</li>
-			</ul>			
+			</ul>
+			</div>
+			
+			<br />
+			
+			<div class="ui-grid-solo">
+				<a href="find-pc.html" data-role="button" data-icon="refresh" data-ajax="false">Update</a>
+			</div>
 		</div><!-- /content -->
 		
 		<div data-role="footer" data-position="fixed">
