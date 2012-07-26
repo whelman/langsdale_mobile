@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <meta charset="UHF-8">
+    <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
 	<link rel="stylesheet" type="text/css" href="langsdale-on-the-go.css" />
@@ -19,6 +19,41 @@
 		</div><!-- /header -->
 
 		<div data-role="content">
+
+		<!-- the form posts to a an external .cfm page, based on ideas from Raymond Camden's Blog: "jQuery Mobile Example - Paged Search Results" http://www.raymondcamden.com/index.cfm/2011/2/25/jQuery-Mobile-Example--Paged-Search-Results -->
+				
+			<form action="mobile-feedback.cfm" method="post">
+				<div class="ui-body ui-body-d ui-corner-all" style="width:60%; margin-left:auto; margin-right:auto; ">
+					<!-- Name -->
+						<label for="name"><strong>Name</strong></h2></label>
+					   	<input type="text" name="name" id="name" value="" placeholder="Enter your name, please." />
+								    		
+				   	<!-- Email -->	
+					  	<label for="email"><strong>Email</strong></label>
+				  		<input type="email" name="email" id="email" value="" placeholder="What is your email address?" />
+					
+			 		<!-- Comments -->
+						<label for="comments"><strong>Comments</strong></h2></label>
+						<textarea name="comments" id="comments" placeholder="Let us know what your experience at the library was like."></textarea>
+						<br/>
+				</div> <!-- form background -->	 
+			
+					<!-- submit / reset -->
+						<div class="ui-grid-c">
+							<div class="ui-block-a">&nbsp;</div>
+							<div class="ui-block-b">
+								<input type="submit" value="Submit" data-theme="c" data-icon="check" />
+							</div>
+							<div class="ui-block-c">
+								<input type="reset" value="Reset" data-theme="c" data-icon="delete" />
+							</div>
+						<div class="ui-block-d">&nbsp;</div>
+						
+						</div>
+						
+						<p>&nbsp;</p>
+	   			</form>
+   				
 
 		</div><!-- /content -->
 		
