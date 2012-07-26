@@ -51,12 +51,14 @@
 
 		<div data-role="content">
 			
-			<h3 display="inline">Computers availability</h3>
-			
-			<br />
-			
 			<div>
-			<ul data-role="listview"  data-theme="g" data-count-theme="c">
+				<small>Latest system update: 9:23am.</small>
+			</div>
+						
+			<div>
+			<ul data-role="listview" data-inset="true" data-theme="g" data-count-theme="c">
+				<li data-role="list-divider">Computers availability</li>
+				
 				<li class="ui-body-c">
 					<h3>First Floor</h3>
 					<span class="ui-li-count" id="floor1"></span>
@@ -71,12 +73,9 @@
 				</li>
 			</ul>
 			</div>
-			<br />			
-			<small>Latest update at 9:23am</small>
-			<br />
 
 			<div class="ui-grid-solo">
-				<a href="find-pc.html" data-role="button" data-icon="refresh" data-ajax="false">Update</a>
+				<a href="find-pc.html" data-role="button" data-icon="refresh" data-ajax="false">Refresh</a>
 			</div>
 		</div><!-- /content -->
 		
