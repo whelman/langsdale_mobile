@@ -12,6 +12,10 @@ h3 {
 	display:none !important;
 }
 
+.img_full {
+	width:100% !important;
+}
+
 /* for iPhone */	
 @media screen and (max-device-width: 480px), screen and (max-width: 600px) {
 	h1 {
@@ -29,6 +33,8 @@ h3 {
 	#only_mobile {
 		display:block !important;
 	}
+	
+
 }
 
 /* for iPad*/
