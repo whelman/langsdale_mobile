@@ -47,6 +47,11 @@ h3 {
 	display:none !important;
 }
 
+#feedbackForm {
+	margin: 0 auto !important;
+	width:60% !important;
+}
+
 /* for iPhone */	
 @media screen and (max-device-width: 480px), screen and (max-width: 600px) {
 	h1 {
@@ -90,6 +95,10 @@ h3 {
 	#img_mobile {
 		display:inline !important;
 	}
+	
+	#feedbackForm {
+		width:100% !important;
+	}
 
 }
 
@@ -104,6 +113,7 @@ h3 {
 	#img_mobile {
 		display:none !important;
 	}
+
 }
 
 /* for larger Displays */
