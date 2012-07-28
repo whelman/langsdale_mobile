@@ -1,3 +1,6 @@
+// BOOK LOCATOR
+//-------------
+
 // run when page loads
 window.onload = init;
 

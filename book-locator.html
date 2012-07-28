@@ -7,22 +7,28 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
 	<link rel="stylesheet" type="text/css" href="langsdale-on-the-go.css" />
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script>
+		$( window.document ).bind('mobileinit', function(){
+			$("[data-role=header]").fixedtoolbar({ disablePageZoom: false });
+			$("[data-role=header]").fixedtoolbar({ hideDuringFocus: "input, select, textarea" });
+		});
+	</script>
 	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
 	<script src="js/call_number_normalizer.js"></script>
-    <script src="js/locator.js"></script>
+    <script src="js/book-locator.js"></script>
     <title>UB Book Locator</title>
 </head>
 <body id="myBodyPage">
 	<div data-role="page">
 
-		<div data-role="header" data-position="fixed" id="my_header">
+		<div data-role="header" data-position="fixed" id="my_header" >
 			<a href="index.html" data-role="button" data-inline="true" data-icon="arrow-l" data-ajax="false">Back</a>
 			<h1>UB Book Locator</h1>
 		</div><!-- /header -->
 
 		<div data-role="content">
 			<form>
-				<input type="search" id="callNumber" placeholder="Tap to enter your call number" />
+				<input type="search" id="callNumber" placeholder="Enter your call number" />
 		        <input type="button" id="findBook" value="Find this Book" />
 		        <span id="message"></span>
 		    </form>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	<link rel="stylesheet" type="text/css" href="../langsdale-on-the-go.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+	<script>
+		
+		/* // this is to reset all cookies
+		var cookies = document.cookie.split(";");
+		for (var i = 0; i < cookies.length; i++) {
+		  eraseCookie(cookies[i].split("=")[0]);
+			alert(cookies[i].split("=")[0]);
+		}
+		
+		function eraseCookie(name) {
+		    createCookie(name,"",-1);
+		}
+		
+		 function createCookie(name,value,days) {
+		    if (days) {
+		        var date = new Date();
+		        date.setTime(date.getTime()+(days*24*60*60*1000));
+		        var expires = "; expires="+date.toGMTString();
+		    }
+		    else var expires = "";
+		    document.cookie = name+"="+value+expires+"; path=/";
+		}
+		*/
+
+		window.onload = init;
+		function init() {
+		    // loads data from web cookie
+			if (document.cookie.indexOf("kioskLayoutState") >= 0) { 
+				var kioskLayoutStateTemp = document.cookie.split("=")[1];
+				if (kioskLayoutStateTemp == "on") {
+					//alert(kioskLayoutStateTemp);
+					document.setup.kioskLayout.options[1].selected = true;
+				}
+
+			}
+		    // inspect save button
+		    var saveSetup = document.getElementById("saveSetup");
+		    saveSetup.onclick = saveTheSetup;
+		}
+		
+		function saveTheSetup() {
+			if (document.setup.kioskLayout.options[1].selected == true) {
+				selectState = "on"
+			}
+			if (document.setup.kioskLayout.options[0].selected == true) {
+				selectState = "off"
+			}
+			document.cookie = "kioskLayoutState="+selectState+"; expires=Thu, 28 Jul 2022 23:59:59 UTC; path=/";
+			alert("Setting Saved!");
+		}
+		
+	</script>
+    <title>Setup</title>
+</head>
+<body>
+	<div data-role="page" id="index">
+
+		<div data-role="header" data-position="fixed" id="my_header">
+			<a href="../index.html" data-role="button" data-inline="true" data-icon="arrow-l" data-ajax="false">Back</a>
+			<h1>Langsdale on the Go!</h1>
+		</div><!-- /header -->
+
+		<div data-role="content" data-theme="a">
+			
+			<h1><img src="../images/icon-setup-inverse.png" alt="Setup" align="left" />&nbsp;Setup</h1>
+			<hr>
+			<br />
+			<form name="setup">
+				<div data-role="fieldcontain">
+					<label for="kioskLayout">Kiosk layout:</label>
+					<select name="kioskLayout" id="kioskLayout" data-role="none">
+						<option value="off">Off</option>
+						<option value="on">On</option>
+					</select>
+				</div>
+			</form>
+			<br />
+			<hr>
+			<br />
+			<input type="button" id="saveSetup" value="Save Setup" data-theme="b" />
+			
+		</div><!-- /content -->
+		
+		<div data-role="footer" data-position="fixed">
+			<h1>Setup</h1>
+		</div><!-- /footer -->
+
+	</div><!-- /page -->
+	
+</body>
+</html>
