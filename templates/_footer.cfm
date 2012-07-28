@@ -1,4 +1,4 @@
-<div data-role="footer" data-position="fixed">
+<div data-role="footer" data-position="fixed" id="myFooter">
 	<div data-role="navbar">
 		<ul>
 			<li><a href="index.html" data-icon="home" class="ui-btn-active" data-ajax="false">Home</a></li>

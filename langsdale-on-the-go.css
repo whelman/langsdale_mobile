@@ -37,14 +37,6 @@ h3 {
 	display:none !important;
 }
 
-#title_for_ipad {
-	display:none !important;
-}
-
-#title_for_the_rest {
-	display:block !important;
-}
-
 #img_ipad {
 	display:inline !important;
 	margin-left:auto;
@@ -119,7 +111,7 @@ h3 {
 	
 }
 
-/* Locator */
+/* Book Locator */
 
 .full_canvas {
 	max-width:450px !important;

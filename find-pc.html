@@ -7,38 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="langsdale-on-the-go.css" />
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
-	<script>
-		window.onload = updatePCavail;
-		function updatePCavail() {
-			xmlhttp = new XMLHttpRequest();
-			//xmlhttp.open("GET","../m/xml/usage.xml",false);
-			xmlhttp.open("GET","xml/usage.xml",false);
-			//xmlhttp.open("GET","http://www.ubalt.edu/mobilelabs/xml/usage.xml",false);
-			xmlhttp.setRequestHeader('Content-Type', 'text/xml');
-			xmlhttp.send("");
-			xmlDoc = xmlhttp.responseXML;
-			var floor1inUse=xmlDoc.getElementsByTagName("INUSE")[3].childNodes[0].nodeValue;
-			var floor1avail=xmlDoc.getElementsByTagName("AVAILABLE")[3].childNodes[0].nodeValue;
-			var floor2inUseA=xmlDoc.getElementsByTagName("INUSE")[4].childNodes[0].nodeValue;
-			var floor2availA=xmlDoc.getElementsByTagName("AVAILABLE")[4].childNodes[0].nodeValue;
-			var floor2inUseB=xmlDoc.getElementsByTagName("INUSE")[6].childNodes[0].nodeValue;
-			var floor2availB=xmlDoc.getElementsByTagName("AVAILABLE")[6].childNodes[0].nodeValue;
-			var floor3inUse=xmlDoc.getElementsByTagName("INUSE")[5].childNodes[0].nodeValue;
-			var floor3avail=xmlDoc.getElementsByTagName("AVAILABLE")[5].childNodes[0].nodeValue;
-			var totalFloor1=parseInt(floor1inUse)+parseInt(floor1avail);
-			var totalFloor2=parseInt(floor2inUseA)+parseInt(floor2availA)+parseInt(floor2inUseB)+parseInt(floor2availB);
-			var totalFloor3=parseInt(floor3inUse)+parseInt(floor3avail);
-			//alert("totalFloor1: "+totalFloor1+", "+"totalFloor2: "+totalFloor2+", "+"totalFloor3: "+totalFloor3);
-			var floor2avail=parseInt(floor2availA)+parseInt(floor2availB);
-			//alert(floor2inUse);
-			var data1floor="Available "+floor1avail+" / Total "+totalFloor1;
-			var data2floor="Available "+floor2avail+" / Total "+totalFloor2;
-			var data3floor="Available "+floor3avail+" / Total "+totalFloor3;
-			document.getElementById("floor1").innerHTML = data1floor;
-			document.getElementById("floor2").innerHTML = data2floor;
-			document.getElementById("floor3").innerHTML = data3floor;
-		}
-	</script>
+	<script src="js/langsdale_mobile.js"></script>
     <title>Find a PC</title>
 </head>
 <body>
@@ -80,7 +49,7 @@
 
 		</div><!-- /content -->
 		
-		<div data-role="footer" data-position="fixed">
+		<div data-role="footer" data-position="fixed" id="myFooter">
 			<div data-role="navbar">
 				<ul>
 					<li><a href="index.html" data-icon="home" class="ui-btn-active" data-ajax="false">Home</a></li>
@@ -88,7 +57,35 @@
 				</ul>
 			</div><!-- /navbar -->
 		</div><!-- /footer -->
-
+		<script>
+				xmlhttp = new XMLHttpRequest();
+				//xmlhttp.open("GET","../m/xml/usage.xml",false);
+				xmlhttp.open("GET","xml/usage.xml",false);
+				//xmlhttp.open("GET","http://www.ubalt.edu/mobilelabs/xml/usage.xml",false);
+				xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+				xmlhttp.send("");
+				xmlDoc = xmlhttp.responseXML;
+				var floor1inUse=xmlDoc.getElementsByTagName("INUSE")[3].childNodes[0].nodeValue;
+				var floor1avail=xmlDoc.getElementsByTagName("AVAILABLE")[3].childNodes[0].nodeValue;
+				var floor2inUseA=xmlDoc.getElementsByTagName("INUSE")[4].childNodes[0].nodeValue;
+				var floor2availA=xmlDoc.getElementsByTagName("AVAILABLE")[4].childNodes[0].nodeValue;
+				var floor2inUseB=xmlDoc.getElementsByTagName("INUSE")[6].childNodes[0].nodeValue;
+				var floor2availB=xmlDoc.getElementsByTagName("AVAILABLE")[6].childNodes[0].nodeValue;
+				var floor3inUse=xmlDoc.getElementsByTagName("INUSE")[5].childNodes[0].nodeValue;
+				var floor3avail=xmlDoc.getElementsByTagName("AVAILABLE")[5].childNodes[0].nodeValue;
+				var totalFloor1=parseInt(floor1inUse)+parseInt(floor1avail);
+				var totalFloor2=parseInt(floor2inUseA)+parseInt(floor2availA)+parseInt(floor2inUseB)+parseInt(floor2availB);
+				var totalFloor3=parseInt(floor3inUse)+parseInt(floor3avail);
+				//alert("totalFloor1: "+totalFloor1+", "+"totalFloor2: "+totalFloor2+", "+"totalFloor3: "+totalFloor3);
+				var floor2avail=parseInt(floor2availA)+parseInt(floor2availB);
+				//alert(floor2inUse);
+				var data1floor="Available "+floor1avail+" / Total "+totalFloor1;
+				var data2floor="Available "+floor2avail+" / Total "+totalFloor2;
+				var data3floor="Available "+floor3avail+" / Total "+totalFloor3;
+				document.getElementById("floor1").innerHTML = data1floor;
+				document.getElementById("floor2").innerHTML = data2floor;
+				document.getElementById("floor3").innerHTML = data3floor;
+		</script>
 	</div><!-- /page -->
 </body>
 </html>
