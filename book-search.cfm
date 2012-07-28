@@ -1,7 +1,7 @@
 <cfinclude template="templates/_head.cfm" />
 
 <cfoutput>
-<cfset title = 'TU Book Search' />
+<cfset title = 'UB Book Search' />
 <div data-role="page" data-theme="#theme#" data-title="#title#">
 	<cfinclude template="templates/_header.cfm" />
 	<div data-role="content">

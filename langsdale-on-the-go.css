@@ -117,3 +117,31 @@ h3 {
 @media screen and (min-width: 980px) {
 	
 }
+
+/* Locator */
+
+.full_canvas {
+	max-width:450px !important;
+	width:100% !important;
+}
+
+#myMap {
+	border: 1px solid #ccc;
+}
+
+#mapWrapper {
+	display:none;
+	width:450px;
+	height:450px;
+    margin: 0px auto;
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+
+#loading {
+	width: 32px;
+    height:32px;
+    margin: 0px auto;
+    margin-top: 50px;
+	display: none;
+}

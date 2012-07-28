@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	<link rel="stylesheet" type="text/css" href="langsdale-on-the-go.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+	<script src="js/call_number_normalizer.js"></script>
+    <script src="js/locator.js"></script>
+    <title>UB Book Locator</title>
+</head>
+<body id="myBodyPage">
+	<div data-role="page">
+
+		<div data-role="header" data-position="fixed" id="my_header">
+			<a href="index.html" data-role="button" data-inline="true" data-icon="arrow-l" data-ajax="false">Back</a>
+			<h1>UB Book Locator</h1>
+		</div><!-- /header -->
+
+		<div data-role="content">
+			<form>
+				<input type="search" id="callNumber" placeholder="Tap to enter your call number" />
+		        <input type="button" id="findBook" value="Find this Book" />
+		        <span id="message"></span>
+		    </form>
+		    <div id="mapWrapper" class="full_canvas">
+		        <canvas id="myMap" width="450" height="450" class="full_canvas"></canvas>
+		        <small>3rd Floor Map</small>
+		    </div>
+			<div id="loading"><img src="images/ajax-loader.gif" /></div>
+		</div><!-- /content -->
+		
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" data-icon="home" class="ui-btn-active" data-ajax="false">Home</a></li>
+					<li><a href="http://langsdale.ubalt.edu" data-icon="grid" data-ajax="false">Full site</a></li> 
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer -->
+
+	</div><!-- /page -->
+	
+</body>
+</html>
+
+    		
