@@ -24,16 +24,26 @@
 
 		</div><!-- /content -->
 		
-			<div data-role="footer" data-position="fixed">
-				<div data-role="navbar">
-					<ul>
-						<li><a href="index.html" data-icon="home" class="ui-btn-active" data-ajax="false">Home</a></li>
-						<li><a href="http://langsdale.ubalt.edu" data-icon="grid" data-ajax="false">Full site</a></li> 
-					</ul>
-				</div><!-- /navbar -->
-			</div><!-- /footer -->
+		<div data-role="footer" data-position="fixed" id="myFooter">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" data-icon="home" class="ui-btn-active" data-ajax="false">Home</a></li>
+					<li><a href="http://langsdale.ubalt.edu" data-icon="grid" data-ajax="false">Full site</a></li> 
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer -->
 
-	</div><!-- /page -->			
+	</div><!-- /page -->
+	<script>
+		<!-- hides the footer if the kiosk layout is on -->
+		if (document.cookie.indexOf("kioskLayoutState") >= 0) { 
+			var kioskLayoutStateTemp = document.cookie.split("=")[1];
+			if (kioskLayoutStateTemp == "on") {
+				alert(kioskLayoutStateTemp);
+				document.getElementById("myFooter").style.display = "none";
+			}
+		}
+	</script>			
 				
 </cfoutput>
 		
