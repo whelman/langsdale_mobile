@@ -20,6 +20,7 @@ h3 {
 .img_full {
 	max-width:960px !important;
 	width:100% !important;
+	margin: 0 auto !important;
 }
 
 #floor1, #floor2, #floor3 {
@@ -38,9 +39,7 @@ h3 {
 }
 
 #img_ipad {
-	display:inline !important;
-	margin-left:auto;
-	margin-right:auto;
+	display:block !important;
 }
 
 #img_mobile {
