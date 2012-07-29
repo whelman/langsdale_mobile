@@ -9,8 +9,14 @@ function init() {
 	if (document.cookie.indexOf("kioskLayoutState") >= 0) { 
 		var kioskLayoutStateTemp = readCookie("kioskLayoutState");
 		if (kioskLayoutStateTemp == "on") {
+			// adds a class to show the background image
+			var myPageTag = document.getElementById("index");
+			myPageTag.className += " " + "myBackgroundPage";
+			// hides menu options for iPad (by using jQuery)
+			$(".noInKiosk").hide();
 			//alert(kioskLayoutStateTemp);
 			document.getElementById("myFooter").style.display = "none";
+			//changes title 
 			document.getElementById("title_for_the_rest").style.display = "none";
 			document.getElementById("title_for_ipad").style.display = "block";
 		}
