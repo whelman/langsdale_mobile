@@ -9,6 +9,8 @@
 		</div><!-- /header -->
 
 		<div data-role="content">
+		
+		<div id="mainMenu">
 
 			<p>&nbsp;</p>
 			<p>&nbsp;</p>
@@ -21,6 +23,7 @@
 						<strong>Comments:</strong>	#form.comments# 
 		       		</p>
 				</div>
+		</div>
 
 		</div><!-- /content -->
 		

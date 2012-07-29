@@ -46,7 +46,7 @@ h3 {
 	display:none !important;
 }
 
-#feedbackForm {
+#feedbackForm, #mainMenu {
 	margin: 0 auto !important;
 	width:60% !important;
 }
@@ -95,7 +95,7 @@ h3 {
 		display:inline !important;
 	}
 	
-	#feedbackForm {
+	#feedbackForm, #mainMenu {
 		width:100% !important;
 	}
 

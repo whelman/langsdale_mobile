@@ -3,7 +3,8 @@
 
 ///*
 window.onload = init;
-function init() {
+
+function init() {	
     // loads cookie and displays or hides elements according the kiosk setup
 	if (document.cookie.indexOf("kioskLayoutState") >= 0) { 
 		var kioskLayoutStateTemp = readCookie("kioskLayoutState");
@@ -28,3 +29,4 @@ function init() {
 	// 
 }
 //*/
+

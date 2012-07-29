@@ -2,9 +2,10 @@
 //-------------
 
 // run when page loads
-window.onload = init;
+window.onload = bookLocator;
 
-function init() { 
+function bookLocator() { 
+	alert("eso!");
     //load data from web service
     var source = "json/langsdale_sections.json";
     var xmlhttp = new XMLHttpRequest();
