@@ -24,6 +24,9 @@
 					<input type="submit" name="submit" value="Search" />
 				</p>
 		</cfform>
+		<cfhttp url="http://catalog.umd.edu/X?op=find&code=wrd&request=green&base=UB">
+		<cfset aleph=XmlParse(cfhttp.Filecontent) />
+		<p>my test: #aleph.XmlText#</p>
 <!---
 --->	
 		<cfif IsDefined('form.term') OR IsDefined('URL.term')>
@@ -36,7 +39,6 @@
 			</cfif>
 			<cfhttp url="http://catalog.umd.edu/X?op=find&code=#type#&request=#term#&base=UB">
 			<cfset aleph=XmlParse(cfhttp.Filecontent) />
-			<p>#aleph#</p>
 
 		<!---
 		<cfdump var="#aleph#" />
