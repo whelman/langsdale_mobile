@@ -4,9 +4,10 @@
 <cfset title = 'UB Book Search' />
 <div data-role="page" data-theme="#theme#" data-title="#title#">
 	<cfinclude template="templates/_header.cfm" />
-	<div data-role="content">
-
-		<cfform id="bookSearchForm" name="bookSearchForm" action="#CGI.SCRIPT_NAME#" method="post">
+	<div data-role="content">		
+		
+		<cfform id="bookSearchForm" name="bookSearchForm" action="#CGI.SCRIPT_NAME#" method="post" scriptsrc="http://www.ubalt.edu/CFIDE/scripts/">
+		
 				<select name="type">
 					<option value="wrd" selected="selected">word/s anywhere</option>
 					<option value="ttl">title beginning with...</option>

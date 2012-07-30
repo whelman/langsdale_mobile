@@ -28,12 +28,6 @@
 
 		<div data-role="content">
 			<div id="mainMenu">
-			<form>
-				<input type="search" id="callNumber" placeholder="Enter your call number" />
-		        <input type="button" id="findBook" value="Find this Book" />
-		        <span id="message"></span>
-		    </form>
-		    <div id="mapWrapper" class="full_canvas">
 		        <canvas id="myMap" width="450" height="450" class="full_canvas"></canvas>
 		        <small>3rd Floor Map</small>
 		    </div>
@@ -54,6 +48,21 @@
 	<script>
 		// BOOK LOCATOR
 		
+		// receives data from a variable
+		var cn = getUrlVars()["cn"];
+		//alert(cn);
+		cn2 = cn.replace("%20"," ");
+		//alert(cn2);
+		findTheBook(cn2);
+		
+		function getUrlVars() {
+		    var vars = {};
+		    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+		        vars[key] = value;
+		    });
+		    return vars;
+		}
+		
 		//load data from web service
 		var source = "json/langsdale_sections.json";
 		var xmlhttp = new XMLHttpRequest();
@@ -61,15 +70,12 @@
 		xmlhttp.send("");
 		sections = JSON.parse(xmlhttp.responseText);
 
-		// inspect find button
-		var findBook = document.getElementById("findBook");
-		findBook.onclick = findTheBook;
-
-		function findTheBook() { // evaluate the textbox, find and display the stack
+		function findTheBook(callNumber) { // evaluate the textbox, find and display the stack
+			alert(callNumber);
 		    // get call number from textbox
-		    var callNumber = document.getElementById("callNumber").value;
+		    //var callNumber = document.getElementById("callNumber").value;
 		    var callNumber = callNumber.toUpperCase();
-		    document.getElementById("callNumber").value = callNumber;
+		    //document.getElementById("callNumber").value = callNumber;
 		    //alert(normalizeLC(callNumber));
 		    var inStock = function(callNumber) {
 		        foundBook = false;
