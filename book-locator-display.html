@@ -28,10 +28,14 @@
 
 		<div data-role="content">
 			<div id="mainMenu">
-		        <canvas id="myMap" width="450" height="450" class="full_canvas"></canvas>
-		        <small>3rd Floor Map</small>
-		    </div>
-			<div id="loading"><img src="images/ajax-loader.gif" /></div>
+			
+				<p id="bookTitle"></p>
+				<p id="callNumber"></p>
+		    	<div id="mapWrapper" class="full_canvas">
+		        	<canvas id="myMap" width="450" height="450" class="full_canvas"></canvas>
+		        	<small>3rd Floor Map</small>
+		    	</div>
+				<div id="loading"><img src="images/ajax-loader.gif" /></div>
 			</div>
 		</div><!-- /content -->
 		
@@ -48,12 +52,19 @@
 	<script>
 		// BOOK LOCATOR
 		
+		//load data from web service
+		var source = "json/langsdale_sections.json";
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.open("GET",source,false);
+		xmlhttp.send("");
+		sections = JSON.parse(xmlhttp.responseText);
+		
 		// receives data from a variable
 		var cn = getUrlVars()["cn"];
-		//alert(cn);
-		cn2 = cn.replace("%20"," ");
-		//alert(cn2);
-		findTheBook(cn2);
+		var bt = getUrlVars()["bt"];
+		callNumber = cn.replace(/%20/g," ");
+		bookTitle = bt.replace(/%20/g," ");
+		findTheBook(callNumber);
 		
 		function getUrlVars() {
 		    var vars = {};
@@ -62,24 +73,14 @@
 		    });
 		    return vars;
 		}
-		
-		//load data from web service
-		var source = "json/langsdale_sections.json";
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET",source,false);
-		xmlhttp.send("");
-		sections = JSON.parse(xmlhttp.responseText);
 
 		function findTheBook(callNumber) { // evaluate the textbox, find and display the stack
-			alert(callNumber);
 		    // get call number from textbox
-		    //var callNumber = document.getElementById("callNumber").value;
 		    var callNumber = callNumber.toUpperCase();
-		    //document.getElementById("callNumber").value = callNumber;
 		    //alert(normalizeLC(callNumber));
 		    var inStock = function(callNumber) {
 		        foundBook = false;
-		        for (var i=0; i < sections.length; i++) { 
+		        for (var i=0; i < sections.length; i++) {
 		            var beginSection = sections[i].begin, endSection = sections[i].end, book = callNumber;
 		            if (normalizeLC(book) >= normalizeLC(beginSection) && normalizeLC(book) <= normalizeLC(endSection)) {
 		                //alert(" book: "+normalizeLC(book)+" / begin: "+normalizeLC(beginSection)+" / end: "+normalizeLC(endSection));
@@ -92,17 +93,20 @@
 		    var inStock = inStock(callNumber);
 		    if (inStock == true) {
 		        // only if the call number was found
-		        sectionLocationX = sectionFound.location_x;
+		        sectionLocationX = sectionFound.location_x;		
 		        sectionLocationY = sectionFound.location_y;
 		        sectionSizeW = sectionFound.size_w;
 		        sectionSizeH = sectionFound.size_h;
 		        // show canvas wrapper and message
 		        document.getElementById('myBodyPage').scrollIntoView();
 		        document.getElementById("mapWrapper").style.display = "none";
-		        document.getElementById("loading").style.display = "block";
+		        document.getElementById("loading").style.display = "block";		
 		        setTimeout(function() {
 		            document.getElementById("loading").style.display = "none";                
-		            document.getElementById("mapWrapper").style.display = "block";                
+		            document.getElementById("mapWrapper").style.display = "block";
+		      		document.getElementById("bookTitle").innerHTML = "Call number: "+callNumber;
+					document.getElementById("callNumber").innerHTML = "Book: "+bookTitle;
+		      		
 		            // iniciate canvas 
 		            var myMap=document.getElementById("myMap");
 		            var ctx=myMap.getContext("2d");
@@ -123,10 +127,9 @@
 		                ctx.font="normal 13pt Monotype";
 		                ctx.fillStyle="#990000"; // red
 		                ctx.textAlign="center";
-		                ctx.fillText(callNumber,225,230);
+		                ctx.fillText(callNumber,225,260);
 		                ctx.font="normal 10pt Arial";
-		                ctx.fillText("Find your book in",225,252);
-		                ctx.fillText("SECTION: "+sectionFound.section,225,275);
+		                ctx.fillText("in section "+sectionFound.section,225,282);
 		            };
 		        },600);
 		    }
