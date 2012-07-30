@@ -25,41 +25,98 @@
 		<div data-role="content">
 			
 			<div id="mainMenu">
-			<label for="search-basic"><h3>Search in Langsdale Library and beyond...<h3></label>
-			<!-- input type="search" name="search" id="search-basic" value="" / -->
+				<label for="search-basic"><h3>Search in Langsdale Library and beyond...<h3></label>
+					<!-- input type="search" name="search" id="search-basic" value="" / -->
 			
-			<!-- BEGIN worldcat.org search box -->			
-			<form name="wcfn" id="wcfn" method="get" accept-charset="UTF-8" action="http://ubalt.worldcat.org/m/search" target="_top">
-				<input type="hidden" name="qt" value="affiliate_wcl_all" />
-				<input type="hidden" name="ai" value="wclocal_ubalt" />
-				<input type="search" name="q" id="search-basic" data-theme="d"/>
-			</form>
-			<!-- END worldcat.org search box -->
+					<!-- BEGIN worldcat.org search box -->			
+					<form name="wcfn" id="wcfn" method="get" accept-charset="UTF-8" action="http://ubalt.worldcat.org/m/search" target="_top">
+						<input type="hidden" name="qt" value="affiliate_wcl_all" />
+						<input type="hidden" name="ai" value="wclocal_ubalt" />
+						<input type="search" name="q" id="search-basic" data-theme="d"/>
+					</form>
+					<!-- END worldcat.org search box -->
 
-			<ul data-role="listview" data-inset="true" data-filter="false">
-				<!-- li data-role="list-divider">Langsdale On the Go!</li -->
-				<li>
-					<a href="ask-langsdale.html"  data-ajax="false"><img src="images/icon-ask-librarian.png" class="ui-li-icon" alt="Ask a Librarian" />Ask a Librarian</a>
-				</li>
-				<li>
-					<a href="floor-directory.html" data-ajax="false"><img src="images/icon-floor-directory.png" class="ui-li-icon" alt="Langsdale Floor Plan" />Floor Directory</a>
-				</li>
-				<li class="noInKiosk">
-					<a href="hours-location.html" data-ajax="false"><img src="images/icon-hours-location.png" class="ui-li-icon" alt="Hours and Locations" />Hours & Location</a>
-				</li>
-				<li class="noInKiosk">
-					<a href="find-pc.html" data-ajax="false"><img src="images/icon-find-pc.png" class="ui-li-icon" alt="Hours and Locations" />Find a PC </a>
-				</li>
-				<li class="noInKiosk noInMobile">
-					<a href="how-do.html" data-ajax="false"><img src="images/icon-how-do.png" class="ui-li-icon" alt="How do I...?" />How do I...?</a>
-				</li>
-				<li>
-					<a href="reserves.html" data-ajax="false"><img src="images/icon-reserves.png" class="ui-li-icon" alt="Langsdale Floor Plan" />Reserves List</a>
-				</li>
-				<li>
-					<a href="feedback.html" data-ajax="false"><img src="images/icon-feedback.png" class="ui-li-icon" alt="Feedback" />Feedback</a>
-				</li>
-			</ul>
+					<!-- BEGIN mobile menu -->
+					<ul data-role="listview" data-inset="true" data-filter="false" id="smallMenu">
+						<li>
+							<a href="ask-langsdale.html"  data-ajax="false"><img src="images/icon-ask-librarian.png" class="ui-li-icon" alt="Ask a Librarian" />Ask a Librarian</a>
+						</li>
+						<li>
+							<a href="floor-directory.html" data-ajax="false"><img src="images/icon-floor-directory.png" class="ui-li-icon" alt="Langsdale Floor Plan" />Floor Directory</a>
+						</li>
+						<li class="noInKiosk">
+							<a href="hours-location.html" data-ajax="false"><img src="images/icon-hours-location.png" class="ui-li-icon" alt="Hours and Locations" />Hours & Location</a>
+						</li>
+						<li class="noInKiosk">
+							<a href="find-pc.html" data-ajax="false"><img src="images/icon-find-pc.png" class="ui-li-icon" alt="Hours and Locations" />Find a PC </a>
+						</li>
+						<li class="noInKiosk noInMobile">
+							<a href="how-do.html" data-ajax="false"><img src="images/icon-how-do.png" class="ui-li-icon" alt="How do I...?" />How do I...?</a>
+						</li>
+						<li>
+							<a href="reserves.html" data-ajax="false"><img src="images/icon-reserves.png" class="ui-li-icon" alt="Langsdale Floor Plan" />Reserves List</a>
+						</li>
+						<li>
+							<a href="feedback.html" data-ajax="false"><img src="images/icon-feedback.png" class="ui-li-icon" alt="Feedback" />Feedback</a>
+						</li>
+					</ul>
+					<!-- END mobile menu -->
+			
+			
+				<!-- BEGIN large screen & kiosk menu -->
+				<ul data-role="listview" data-inset="true" ul="largeMenu" id="largeMenu">
+					<li class="ui-body-c">
+						<a href="ask-langsdale.html" data-ajax="false">
+							<img src="images/icon-ask-librarian-large.png" alt="Ask a Librarian" />
+							<h3>Ask a Librarian</h3>
+							<p>Description of this option</p>
+						</a>
+					</li>
+					<li class="ui-body-c">
+						<a href="floor-directory.html" data-ajax="false">
+							<img src="images/icon-floor-directory-large.png" alt="Langsdale Floor Plan" />
+							<h3>Floor Directory</h3>
+							<p>Description of this option</p>
+						</a>
+					</li>
+					<li class="noInKiosk ui-body-c">
+						<a href="hours-location.html" data-ajax="false">
+							<img src="images/icon-hours-location-large.png" alt="Hours and Locations" />
+							<h3>Hours & Location</h3>
+							<p>Description of this option</p>
+						</a>
+					</li>
+					<li class="noInKiosk ui-body-c">
+						<a href="find-pc.html" data-ajax="false">
+							<img src="images/icon-find-pc-large.png" alt="Hours and Locations" />
+							<h3>Find a PC</h3>
+							<p>Description of this option</p>
+						</a>
+					</li>
+					<li class="noInKiosk ui-body-c">
+						<a href="how-do.html" data-ajax="false">
+							<img src="images/icon-how-do-large.png" alt="How do I...?" />
+							<h3>How do I...?</h3>
+							<p>Description of this option</p>
+						</a>
+					</li>
+					<li class="ui-body-c">
+						<a href="reserves.html" data-ajax="false">
+							<img src="images/icon-reserves-large.png" alt="Langsdale Floor Plan" />
+							<h3>Reserves List</h3>
+							<p>Description of this option</p>
+						</a>
+					</li>
+					<li class="ui-body-c">
+						<a href="feedback.html" data-ajax="false">
+							<img src="images/icon-feedback-large.png" alt="Feedback" />
+							<h3>Feedback</h3>
+							<p>Description of this option</p>
+						</a>
+					</li>
+				</ul>
+				<!-- BEGIN large screen & kiosk menu -->
+			
 			</div>
 			
 		</div><!-- /content -->

@@ -55,6 +55,14 @@ h3 {
 	width:60% !important;
 }
 
+#smallMenu {
+	display:none !important;
+}
+
+#largeMenu {
+	display:block !important;
+}
+
 /* for iPhone */	
 @media screen and (max-device-width: 480px), screen and (max-width: 600px) {
 	
@@ -107,7 +115,14 @@ h3 {
 	#feedbackForm, #mainMenu {
 		width:100% !important;
 	}
-
+	
+	#smallMenu {
+		display:block !important;
+	}
+	
+	#largeMenu {
+		display:none !important;
+	}
 }
 
 /* for iPad*/
