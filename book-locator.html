@@ -57,6 +57,7 @@
 		//load data from web service
 		var source = "json/langsdale_sections.json";
 		var xmlhttp = new XMLHttpRequest();
+		//gets the data
 		xmlhttp.open("GET",source,false);
 		xmlhttp.send("");
 		sections = JSON.parse(xmlhttp.responseText);

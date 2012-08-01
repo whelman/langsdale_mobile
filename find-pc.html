@@ -42,7 +42,7 @@
 			
 			<div class="ui-grid-a">
 				<div class="ui-block-a"></div>
-				<div class="ui-block-b" align="right"><small>Latest system update: 9:23am.</small></div>
+				<div class="ui-block-b" align="right"><small id="modified">Latest system update: </small></div>
 			</div>
 
 			<div class="ui-grid-solo">
@@ -65,6 +65,11 @@
 			// READS XML FILE AND UPDATE DOM
 			xmlhttp = new XMLHttpRequest();
 			//xmlhttp.open("GET","../m/xml/usage.xml",false);
+			//gets the date and time
+			xmlhttp.open("HEAD","xml/usage.xml",false);
+			xmlhttp.send("");
+			modified = xmlhttp.getResponseHeader('Last-Modified');
+			//gets the data
 			xmlhttp.open("GET","xml/usage.xml",false);
 			//xmlhttp.open("GET","http://www.ubalt.edu/mobilelabs/xml/usage.xml",false);
 			xmlhttp.setRequestHeader('Content-Type', 'text/xml');
@@ -87,9 +92,11 @@
 			var data1floor="Available "+floor1avail+" / Total "+totalFloor1;
 			var data2floor="Available "+floor2avail+" / Total "+totalFloor2;
 			var data3floor="Available "+floor3avail+" / Total "+totalFloor3;
+			var dataModified="Latest system update: "+modified;
 			document.getElementById("floor1").innerHTML = data1floor;
 			document.getElementById("floor2").innerHTML = data2floor;
 			document.getElementById("floor3").innerHTML = data3floor;
+			document.getElementById("modified").innerHTML = dataModified;
 		</script>
 	</div><!-- /page -->
 </body>
