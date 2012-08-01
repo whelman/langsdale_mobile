@@ -75,6 +75,7 @@
 		        foundBook = false;
 		        for (var i=0; i < sections.length; i++) { 
 		            var beginSection = sections[i].begin, endSection = sections[i].end, book = callNumber;
+					if (normalizeLC(book) == "error") {return foundBook;}
 		            if (normalizeLC(book) >= normalizeLC(beginSection) && normalizeLC(book) <= normalizeLC(endSection)) {
 		                //alert(" book: "+normalizeLC(book)+" / begin: "+normalizeLC(beginSection)+" / end: "+normalizeLC(endSection));
 		                sectionFound = sections[i];
@@ -85,6 +86,8 @@
 		    }
 		    var inStock = inStock(callNumber);
 		    if (inStock == true) {
+				// hides error message
+				document.getElementById("message").innerHTML = "";
 		        // only if the call number was found
 		        sectionLocationX = sectionFound.location_x;
 		        sectionLocationY = sectionFound.location_y;
@@ -117,15 +120,15 @@
 		                ctx.font="normal 13pt Monotype";
 		                ctx.fillStyle="#990000"; // red
 		                ctx.textAlign="center";
-		                ctx.fillText(callNumber,225,230);
+		                ctx.fillText(callNumber,225,260);
 		                ctx.font="normal 10pt Arial";
-		                ctx.fillText("Find your book in",225,252);
-		                ctx.fillText("SECTION: "+sectionFound.section,225,275);
+		                ctx.fillText("in section "+sectionFound.section,225,282);
 		            };
 		        },600);
 		    }
 		    if (inStock == false) { // only if the call number wasn't found
 		        document.getElementById("mapWrapper").style.display = "none";
+				document.getElementById("message").innerHTML = "No location was retrieved for this book.";
 		    }
 		}
 	</script>

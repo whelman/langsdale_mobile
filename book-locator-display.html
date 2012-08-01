@@ -30,6 +30,7 @@
 			<div id="mainMenu">
 				<p id="bookTitle"></p>
 				<p id="callNumber"></p>
+				<span id="message"></span>
 		    	<div id="mapWrapper" class="full_canvas">
 		        	<canvas id="myMap" width="450" height="450" class="full_canvas"></canvas>
 		        	<small>3rd Floor Map</small>
@@ -79,8 +80,9 @@
 		    //alert(normalizeLC(callNumber));
 		    var inStock = function(callNumber) {
 		        foundBook = false;
-		        for (var i=0; i < sections.length; i++) {
+		        for (var i=0; i < sections.length; i++) { 
 		            var beginSection = sections[i].begin, endSection = sections[i].end, book = callNumber;
+					if (normalizeLC(book) == "error") {return foundBook;}
 		            if (normalizeLC(book) >= normalizeLC(beginSection) && normalizeLC(book) <= normalizeLC(endSection)) {
 		                //alert(" book: "+normalizeLC(book)+" / begin: "+normalizeLC(beginSection)+" / end: "+normalizeLC(endSection));
 		                sectionFound = sections[i];
@@ -91,6 +93,8 @@
 		    }
 		    var inStock = inStock(callNumber);
 		    if (inStock == true) {
+				// hides error message
+				document.getElementById("message").innerHTML = "";
 		        // only if the call number was found
 		        sectionLocationX = sectionFound.location_x;		
 		        sectionLocationY = sectionFound.location_y;
@@ -105,7 +109,6 @@
 		            document.getElementById("mapWrapper").style.display = "block";
 		      		document.getElementById("bookTitle").innerHTML = "Call number: "+callNumber;
 					document.getElementById("callNumber").innerHTML = "Book: "+bookTitle;
-		      		
 		            // iniciate canvas 
 		            var myMap=document.getElementById("myMap");
 		            var ctx=myMap.getContext("2d");
@@ -134,6 +137,7 @@
 		    }
 		    if (inStock == false) { // only if the call number wasn't found
 		        document.getElementById("mapWrapper").style.display = "none";
+				document.getElementById("message").innerHTML = "No location was retrieved for this book.";
 		    }
 		}
 	</script>
