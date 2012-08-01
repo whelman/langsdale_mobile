@@ -25,14 +25,12 @@
 		<div data-role="content">
 			
 			<div id="mainMenu">
-				<label for="search-basic"><p>Search in Langsdale Library and beyond...<p></label>
-					<!-- input type="search" name="search" id="search-basic" value="" / -->
 			
 					<!-- BEGIN worldcat.org search box -->			
 					<form name="wcfn" id="wcfn" method="get" accept-charset="UTF-8" action="http://ubalt.worldcat.org/m/search" target="_top">
 						<input type="hidden" name="qt" value="affiliate_wcl_all" />
 						<input type="hidden" name="ai" value="wclocal_ubalt" />
-						<input type="search" name="q" id="search-basic" data-theme="d"/>
+						<input type="search" name="q" id="search-basic" placeholder="Search the catalog: tap to enter subject, title or author" data-theme="d"/>
 					</form>
 					<!-- END worldcat.org search box -->
 

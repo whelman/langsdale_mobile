@@ -61,7 +61,6 @@
 		xmlhttp.open("GET",source,false);
 		xmlhttp.send("");
 		sections = JSON.parse(xmlhttp.responseText);
-
 		// inspect find button
 		var findBook = document.getElementById("findBook");
 		findBook.onclick = findTheBook;
