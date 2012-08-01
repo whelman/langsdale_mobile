@@ -25,11 +25,11 @@
 				</p>
 		</cfform>
 		
-		<!--- START test with external urls
+		<!--- START test with external urls --->
 		<cfhttp url="http://catalog.umd.edu/X?op=find&code=wrd&request=green&base=UB">
 		<cfset aleph=XmlParse(cfhttp.Filecontent) />
 		<p>my test: #aleph.XmlText#</p>
-		END test with external urls --->
+		<!--- END test with external urls --->
 <!---
 --->	
 		<cfif IsDefined('form.term') OR IsDefined('URL.term')>
