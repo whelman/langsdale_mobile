@@ -4,19 +4,19 @@
 <head>
     <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
-	<link rel="stylesheet" href="theme/ub_theme.min.css" />
+	<link rel="stylesheet" href="themes/ub_theme.min.css" />
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
-	<link rel="stylesheet" href="langsdale-on-the-go.css" />
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
 	<script src="js/langsdale_mobile.js"></script>
+	<link rel="stylesheet" href="langsdale-on-the-go.css" />
     <title>Langsdale on the Go!</title>
 </head>
 <body>
 	<div data-role="page" id="index">
 
 		<div data-role="header" data-position="fixed" id="my_header">
-			<img src="images/ub-logo.png" alt="University of Baltimore" id="ub_logo" align="left" />
+			<img src="images/ub-logo.png" alt="University of Baltimore" id="ub_logo" />
 			<p id="ub_logo_text">UB</p>
 			<h1 id="title_for_ipad" style="display:none">Welcome to Langsdale</h1>
 			<h1 id="title_for_the_rest">Langsdale on the Go!</h1>
@@ -62,7 +62,7 @@
 			
 			
 				<!-- BEGIN large screen & kiosk menu -->
-				<ul data-role="listview" data-inset="true" ul="largeMenu" id="largeMenu">
+				<ul data-role="listview" data-inset="true" id="largeMenu">
 					<li class="ui-body-c">
 						<a href="ask-langsdale.html" data-ajax="false">
 							<img src="images/icon-ask-librarian-large.png" alt="Ask a Librarian" />
@@ -85,7 +85,7 @@
 						</a>
 					</li>
 					<li class="noInKiosk ui-body-c">
-						<a href="find-pc.html" data-ajax="false">
+						<a href="find-pc.html">
 							<img src="images/icon-find-pc-large.png" alt="Hours and Locations" />
 							<h3>Find a PC</h3>
 							<p>Description of this option</p>

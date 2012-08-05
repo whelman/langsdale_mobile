@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+	<link rel="stylesheet" href="themes/ub_theme.css" />
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
-	<link rel="stylesheet" type="text/css" href="langsdale-on-the-go.css" />
+	<link rel="stylesheet" href="langsdale-on-the-go.css" />
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<script>
 		$( window.document ).bind('mobileinit', function(){
@@ -28,10 +29,10 @@
 
 		<div data-role="content">
 			<div id="mainMenu">
-				<p id="bookTitle"></p>
-				<p id="callNumber"></p>
 				<span id="message"></span>
 		    	<div id="mapWrapper" class="full_canvas">
+					<p id="bookTitle"></p>
+					<p id="callNumber"></p>
 		        	<canvas id="myMap" width="450" height="450" class="full_canvas"></canvas>
 		        	<small>3rd Floor Map</small>
 		    	</div>
@@ -107,8 +108,8 @@
 		        setTimeout(function() {
 		            document.getElementById("loading").style.display = "none";                
 		            document.getElementById("mapWrapper").style.display = "block";
-		      		document.getElementById("bookTitle").innerHTML = "Call number: "+callNumber;
-					document.getElementById("callNumber").innerHTML = "Book: "+bookTitle;
+		      		document.getElementById("bookTitle").innerHTML = callNumber;
+					document.getElementById("callNumber").innerHTML = "<small>Title: </small>"+bookTitle;
 		            // iniciate canvas 
 		            var myMap=document.getElementById("myMap");
 		            var ctx=myMap.getContext("2d");
