@@ -101,7 +101,7 @@
 	</ul>
 			<br />
 			<p>
-				<cfif IsDefined('URL.term')><a href="javascript: history.go(-1)">&laquo;&nbsp;Previous</a> | </cfif><cfif NOT IsDefined('end')><a href="?recnum=#i#&count=#CountVar#&term=#term#&type=#type#">Next&nbsp;&raquo;</a><cfelse>No more records</cfif>
+				<cfif IsDefined('URL.term')><a href="javascript: history.go(-1)" data-ajax="false">&laquo;&nbsp;Previous</a> | </cfif><cfif NOT IsDefined('end')><a href="?recnum=#i#&count=#CountVar#&term=#term#&type=#type#" data-ajax="false">Next&nbsp;&raquo;</a><cfelse>No more records</cfif>
 			</p>
 		</cfif>
 		
