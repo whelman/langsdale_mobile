@@ -70,8 +70,8 @@
 			xmlhttp.send("");
 			modified = xmlhttp.getResponseHeader('Last-Modified');
 			//gets the data
-			xmlhttp.open("GET","xml/usage.xml",false);
-			//xmlhttp.open("GET","http://www.ubalt.edu/mobilelabs/xml/usage.xml",false);
+			//xmlhttp.open("GET","xml/usage.xml",false);
+			xmlhttp.open("GET","http://www.ubalt.edu/mobilelabs/xml/usage.xml",false);
 			xmlhttp.setRequestHeader('Content-Type', 'text/xml');
 			xmlhttp.send("");
 			xmlDoc = xmlhttp.responseXML;
