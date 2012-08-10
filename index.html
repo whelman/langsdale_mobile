@@ -36,6 +36,9 @@
 
 					<!-- BEGIN mobile menu -->
 					<ul data-role="listview" data-inset="true" data-filter="false" id="smallMenu">
+						<li class="noInKiosk">
+							<a href="book-search.cfm" data-ajax="false"><img src="images/icon-locate-book.png" class="ui-li-icon" alt="Locate a Book" />Locate a Book </a>
+						</li>
 						<li>
 							<a href="ask-langsdale.html"  data-ajax="false"><img src="images/icon-ask-librarian.png" class="ui-li-icon" alt="Ask a Librarian" />Ask a Librarian</a>
 						</li>
@@ -63,53 +66,60 @@
 			
 				<!-- BEGIN large screen & kiosk menu -->
 				<ul data-role="listview" data-inset="true" id="largeMenu">
+					<li class="noInKiosk ui-body-c">
+						<a href="book-search.cfm" data-ajax="false">
+							<img src="images/icon-locate-book-large.png" alt="Locate a Book" />
+							<h3>Locate a Book</h3>
+							<p>Find books available right now</p>
+						</a>
+					</li>
 					<li class="ui-body-c">
 						<a href="ask-langsdale.html" data-ajax="false">
 							<img src="images/icon-ask-librarian-large.png" alt="Ask a Librarian" />
 							<h3>Ask a Librarian</h3>
-							<p>Description of this option</p>
+							<p>Chat reference.</p>
 						</a>
 					</li>
 					<li class="ui-body-c">
 						<a href="floor-directory.html" data-ajax="false">
 							<img src="images/icon-floor-directory-large.png" alt="Langsdale Floor Plan" />
 							<h3>Floor Directory</h3>
-							<p>Description of this option</p>
+							<p>Library maps and more.</p>
 						</a>
 					</li>
 					<li class="noInKiosk ui-body-c">
 						<a href="hours-location.html" data-ajax="false">
 							<img src="images/icon-hours-location-large.png" alt="Hours and Locations" />
 							<h3>Hours & Location</h3>
-							<p>Description of this option</p>
+							<p>When and where we're open.</p>
 						</a>
 					</li>
 					<li class="noInKiosk ui-body-c">
 						<a href="find-pc.html">
 							<img src="images/icon-find-pc-large.png" alt="Hours and Locations" />
 							<h3>Find a PC</h3>
-							<p>Description of this option</p>
+							<p>Currently available computers.</p>
 						</a>
 					</li>
 					<li class="noInKiosk ui-body-c">
 						<a href="how-do.html" data-ajax="false">
 							<img src="images/icon-how-do-large.png" alt="How do I...?" />
 							<h3>How do I...?</h3>
-							<p>Description of this option</p>
+							<p>Short anwswers to common questions.</p>
 						</a>
 					</li>
 					<li class="ui-body-c">
 						<a href="reserves.html" data-ajax="false">
 							<img src="images/icon-reserves-large.png" alt="Langsdale Floor Plan" />
-							<h3>Reserves List</h3>
-							<p>Description of this option</p>
+							<h3>Print Reserves</h3>
+							<p>The books and DVDs you need for class.</p>
 						</a>
 					</li>
 					<li class="ui-body-c">
 						<a href="feedback.html" data-ajax="false">
 							<img src="images/icon-feedback-large.png" alt="Feedback" />
 							<h3>Feedback</h3>
-							<p>Description of this option</p>
+							<p>What's on your mind?</p>
 						</a>
 					</li>
 				</ul>
