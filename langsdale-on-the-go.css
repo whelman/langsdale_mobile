@@ -1,0 +1,177 @@
+h1 {
+}
+
+h2 {
+}
+
+h3 {
+
+}
+
+.myBackgroundPage {
+	background : transparent url(images/university_of_baltimore_background.jpg) 0 0 no-repeat fixed !important;
+	background-size : cover;
+}
+
+#my_header {
+	height:39px !important;
+}
+
+#only_mobile {
+	display:block !important;
+}
+
+.img_full {
+	max-width:960px !important;
+	width:100% !important;
+	margin: 0 auto !important;
+}
+
+#floor1, #floor2, #floor3 {
+	font-size: 14px !important;
+}
+
+#ub_logo {
+	float:left !important;
+	margin:6px 0 0 10px;
+	display:inline-block !important;
+	position: absolute;
+}
+
+#ub_logo_text {
+	display:none !important;
+}
+
+#img_ipad {
+	display:block !important;
+}
+
+#img_mobile {
+	display:none !important;
+}
+
+#feedbackForm, #mainMenu {
+	margin: 0 auto !important;
+	width:60% !important;
+}
+
+#smallMenu {
+	display:none !important;
+}
+
+#largeMenu {
+	display:block !important;
+}
+
+/* for iPhone */	
+@media screen and (max-device-width: 480px), screen and (max-width: 600px) {
+	
+	.myBackgroundPage {
+		background-image:none !important;
+	}
+	
+	h1 {
+		font-size: 11px !important;
+		line-height:26px;
+	}
+	
+	h2 {
+		font-size: 12px !important;
+	}
+	
+	h3 {
+		font-size: 12px !important;
+	}
+	
+	.noInMobile {
+		display:none !important;
+	}
+	
+	#floor1, #floor2, #floor3 {
+		font-size: 12px !important;
+	}
+	
+	#ub_logo {
+		display:none !important;
+	}
+
+	#ub_logo_text {
+		float:left !important;
+		font-size:14px;
+		line-height:39px;
+		margin:0 0 0 10px !important;
+		display:block !important;
+		position: absolute;
+	}
+	
+	#img_ipad {
+		display:none !important;
+	}
+
+	#img_mobile {
+		display:inline !important;
+	}
+	
+	#feedbackForm, #mainMenu {
+		width:100% !important;
+	}
+	
+	#smallMenu {
+		display:block !important;
+	}
+	
+	#largeMenu {
+		display:none !important;
+	}
+	
+	#bl_notice {
+		font-size:11px;
+	}
+}
+
+/* for iPad*/
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+	
+	#img_ipad {
+		display:inline !important;
+	}
+	
+	#img_mobile {
+		display:none !important;
+	}
+
+}
+
+/* for larger Displays */
+@media screen and (min-width: 980px) {
+	
+}
+
+/* Book Locator */
+
+.full_canvas {
+	max-width:450px !important;
+	width:100% !important;
+}
+
+#myMap {
+	border: 1px solid #ccc;
+}
+
+#mapWrapper {
+	display:none;
+	width:450px;
+	height:450px;
+    margin: 0px auto;
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+
+#loading {
+	width: 32px;
+    height:32px;
+    margin: 0px auto;
+    margin-top: 50px;
+	display: none;
+}

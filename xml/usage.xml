@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<LABS >  
+	<LAB >  
+		<NAME><![CDATA[AC135]]></NAME> 
+		<INUSE><![CDATA[3]]></INUSE> 
+		<AVAILABLE><![CDATA[14]]></AVAILABLE> 
+	</LAB> 
+	<LAB > 
+		<NAME><![CDATA[BC002]]></NAME> 
+		<INUSE><![CDATA[4]]></INUSE> 
+		<AVAILABLE><![CDATA[26]]></AVAILABLE> 
+	</LAB> 
+	<LAB > 
+		<NAME><![CDATA[BC015]]></NAME> 
+		<INUSE><![CDATA[1]]></INUSE> 
+		<AVAILABLE><![CDATA[30]]></AVAILABLE> 
+	</LAB> 
+	<LAB > 
+		<NAME><![CDATA[Langsdale001]]></NAME> 
+		<INUSE><![CDATA[5]]></INUSE> 
+		<AVAILABLE><![CDATA[30]]></AVAILABLE> 
+	</LAB> 
+	<LAB > 
+		<NAME><![CDATA[Langsdale002]]></NAME> 
+		<INUSE><![CDATA[1]]></INUSE> 
+		<AVAILABLE><![CDATA[4]]></AVAILABLE> 
+	</LAB> 
+	<LAB > 
+		<NAME><![CDATA[Langsdale003]]></NAME> 
+		<INUSE><![CDATA[0]]></INUSE> 
+		<AVAILABLE><![CDATA[2]]></AVAILABLE> 
+	</LAB> 
+	<LAB > 
+		<NAME><![CDATA[Langsdale200]]></NAME> 
+		<INUSE><![CDATA[3]]></INUSE> 
+		<AVAILABLE><![CDATA[23]]></AVAILABLE> 
+	</LAB> 
+	<LAB > 
+		<NAME><![CDATA[Law426A]]></NAME> 
+		<INUSE><![CDATA[1]]></INUSE> 
+		<AVAILABLE><![CDATA[11]]></AVAILABLE> 
+	</LAB> 
+	<LAB > 
+		<NAME><![CDATA[Law426B]]></NAME> 
+		<INUSE><![CDATA[2]]></INUSE> 
+		<AVAILABLE><![CDATA[15]]></AVAILABLE> 
+	</LAB> 
+	<LAB > 
+		<NAME><![CDATA[SC001]]></NAME> 
+		<INUSE><![CDATA[0]]></INUSE> 
+		<AVAILABLE><![CDATA[21]]></AVAILABLE> 
+	</LAB> 
+</LABS>
