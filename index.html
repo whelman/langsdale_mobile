@@ -4,14 +4,12 @@
 <head>
     <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
-	<!-- link rel="stylesheet" href="themes/ub_theme.min.css" / -->
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0-rc.1/jquery.mobile-1.3.0-rc.1.min.css" />
-	<script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.3.0-rc.1/jquery.mobile-1.3.0-rc.1.min.js"></script>
+	<link rel="stylesheet" href="themes/ub_theme.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
 	<script src="js/langsdale_mobile.js"></script>
 	<link rel="stylesheet" href="langsdale-on-the-go.css" />
-	
-
     <title>Langsdale on the Go!</title>
     	<!-- Google Analytics code -->
     		<script type="text/javascript">
@@ -45,10 +43,10 @@
 			
 					<!-- BEGIN worldcat.org search box -->			
 					<form name="wcfn" id="wcfn" method="get" accept-charset="UTF-8" action="http://ubalt.worldcat.org/m/search" target="_top">
-						<label for="basic">Search in Library’s Catalog:</label>
 						<input type="hidden" name="qt" value="affiliate_wcl_all" />
 						<input type="hidden" name="ai" value="wclocal_ubalt" />
-						<input type="search" name="q" id="search-basic" placeholder="Search the catalog: tap to enter subject, title or author" data-theme="d"/>
+						<label for="search_basic">Search in Library’s Catalog</label>
+						<input type="search" name="q" id="search-basic" placeholder="Tap to enter subject, title or author" data-theme="d"/>
 					</form>
 					<!-- END worldcat.org search box -->
 
@@ -73,7 +71,7 @@
 							<a href="how-do.html" data-ajax="false"><img src="images/icon-how-do.png" class="ui-li-icon" alt="How do I...?" />How do I...?</a>
 						</li>
 						<li>
-							<a href="reserves.html" data-ajax="false"><img src="images/icon-reserves.png" class="ui-li-icon" alt="Langsdale Floor Plan" />Reserves @langsdale</a>
+							<a href="reserves.html" data-ajax="false"><img src="images/icon-reserves.png" class="ui-li-icon" alt="Langsdale Floor Plan" />Reserve Books List</a>
 						</li>
 						<li>
 							<a href="feedback.html" data-ajax="false"><img src="images/icon-feedback.png" class="ui-li-icon" alt="Feedback" />Feedback</a>
@@ -130,7 +128,7 @@
 						<a href="reserves.html" data-ajax="false">
 							<img src="images/icon-reserves-large.png" alt="Langsdale Floor Plan" />
 							<!-- <h3>Reserves List &dash; Hardcopy</h3>  -->
-							<h3>Reserves @langsdale</h3>
+							<h3>Reserve Books List</h3>
 							<p>The books and DVDs set aside for your class.</p>
 						</a>
 					</li>
