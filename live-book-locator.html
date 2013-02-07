@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	<link rel="stylesheet" type="text/css" href="langsdale-on-the-go.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script>
+		$( window.document ).bind('mobileinit', function(){
+			$("[data-role=header]").fixedtoolbar({ disablePageZoom: false });
+			$("[data-role=header]").fixedtoolbar({ hideDuringFocus: "input, select, textarea" });
+		});
+	</script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+	<script src="js/call_number_normalizer.js"></script>
+	<script src="js/langsdale_mobile.js"></script>
+    <title>UB Book Locator</title>
+    	<!-- Google Analytics code -->
+    		<script type="text/javascript">
+
+  			var _gaq = _gaq || [];
+ 			_gaq.push(['_setAccount', 'UA-2192340-1']);
+  			_gaq.push(['_trackPageview']);
+
+  				(function() {
+    					var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  						})();
+
+			</script>
+    	<!-- End Google Analytics code -->
+</head>
+<body id="myBodyPage">
+	<div data-role="page" id="index">
+
+		<div data-role="header" data-position="fixed" id="my_header" >
+			<a href="index.html" data-role="button" data-inline="true" data-icon="arrow-l" data-ajax="false">Back</a>
+			<h1>UB Book Locator</h1>
+		</div><!-- /header -->
+
+		<div data-role="content">
+			<div id="mainMenu">
+			<form>
+				<input type="search" id="callNumber" placeholder="Enter your call number" />
+		        <input type="button" id="findBook" value="Find this Book" />
+		        <span id="message"></span>
+		    </form>
+		    <div id="mapWrapper" class="full_canvas">
+		        <canvas id="myMap" width="450" height="450" class="full_canvas"></canvas>
+		        <small>3rd Floor Map</small>
+		    </div>
+			<div id="loading"><img src="images/ajax-loader.gif" /></div>
+			</div>
+		</div><!-- /content -->
+		
+		<div data-role="footer" data-position="fixed" id="myFooter">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" data-icon="home" class="ui-btn-active" data-ajax="false">Home</a></li>
+					<li><a href="http://langsdale.ubalt.edu" data-icon="grid" data-ajax="false">Full site</a></li> 
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer -->
+
+	</div><!-- /page -->
+	<script>
+		// BOOK LOCATOR
+		// NOTE: Temporarily removed sections 4, 22 and 40. Empty during shifting project
+		
+		//load data from web service
+		//var source = "json/langsdale_sections.json";
+		///var xmlhttp = new XMLHttpRequest();
+		//gets the data
+		//xmlhttp.open("GET",source,false);
+		//xmlhttp.send("");
+		//sections = JSON.parse(xmlhttp.responseText);
+		
+		sections = [
+		  {
+		    "begin" : "BL31.C75 1998",
+		    "end" : "BV5082.3.E87 2006",
+		    "location_x" : 19,
+		    "location_y" : 20,
+		    "section" : 1,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "BX382.C493 2004",
+		    "end" : "D455.R49 2007",
+		    "location_x" : 19,
+		    "location_y" : 27,
+		    "section" : 2,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "E184.A1 S37 2003",
+		    "end" : "E187.5 H88 1999",
+		    "location_x" : 19,
+		    "location_y" : 46,
+		    "section" : 3,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+			"begin" : "E672 G7617",
+			"end" : "E895 Z56 2006",
+		    "location_x" : 19,
+		    "location_y" : 58,
+		    "section" : 5,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "E901.1.O23 A3 2006",
+		    "end" : "F229.S633",
+		    "location_x" : 19,
+		    "location_y" : 66,
+		    "section" : 6,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HC106.6.S74 2001",
+		    "end" : "HC453.Z36 1999",
+		    "location_x" : 19,
+		    "location_y" : 78,
+		    "section" : 7,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HC460.5 E275 1993",
+		    "end" : "HD30.3.G56 1993",
+		    "location_x" : 19,
+		    "location_y" : 85,
+		    "section" : 8,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HD6054.3A73 2006",
+		    "end" : "HD9696.C64.A863 1988",
+		    "location_x" : 19,
+		    "location_y" : 97,
+		    "section" : 9,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HD9696.C64.G615 1996",
+		    "end" : "HF91.U57 2000",
+		    "location_x" : 19,
+		    "location_y" : 105,
+		    "section" : 10,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HF5661.G44 1990 V.1",
+		    "end" : "HF5833.W67",
+		    "location_x" : 19,
+		    "location_y" : 117,
+		    "section" : 11,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HF5837.A38 2006",
+		    "end" : "HG925.U53 1998",
+		    "location_x" : 96,
+		    "location_y" : 124,
+		    "section" : 12,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 35
+		  },
+		  {
+		    "begin" : "HG4915.S665 1999",
+		    "end" : "HG4961.M66 2004",
+		    "location_x" : 96,
+		    "location_y" : 136,
+		    "section" : 13,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 35
+		  },
+		  {
+		    "begin" : "HG4961 M367 1987 V.1",
+		    "end" : "HG6024.A3 J638 1999",
+		    "location_x" : 96,
+		    "location_y" : 144,
+		    "section" : 14,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 35
+		  },
+		  {
+		    "begin" : "HM258.C843 1998",
+		    "end" : "HM1033.G53 2002",
+		    "location_x" : 96,
+		    "location_y" : 156,
+		    "section" : 15,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 35
+		  },
+		  {
+		    "begin" : "HN5 S5 1964",
+		    "end" : "HN65.E44 2000",
+		    "location_x" : 96,
+		    "location_y" : 163,
+		    "section" : 16,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 35
+		  },
+		  {
+		    "begin" : "HT123.H37",
+		    "end" : "HV13.P68 2006",
+		    "location_x" : 96,
+		    "location_y" : 175,
+		    "section" : 17,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 35
+		  },
+		  {
+		    "begin" : "HV16.W58 1998",
+		    "end" : "HV741.F38 1998",
+		    "location_x" : 96,
+		    "location_y" : 182,
+		    "section" : 18,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 35
+		  },
+		  {
+		    "begin" : "BF176.A5 1997",
+		    "end" : "BJ2121.S48 2005",
+		    "location_x" : 172,
+		    "location_y" : 20,
+		    "section" : 19,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "D509.W85 2007",
+		    "end" : "DA566.7 A18",
+		    "location_x" : 172,
+		    "location_y" : 27,
+		    "section" : 20,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "DT12 G86",
+		    "end" : "E184.A1 R644 2005",
+		    "location_x" : 172,
+		    "location_y" : 46,
+		    "section" : 21,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "E333.K46 2003",
+		    "end" : "E671 G3",
+		    "location_x" : 172,
+		    "location_y" : 58,
+		    "section" : 23,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "F229.S7 A3 2007",
+		    "end" : "GE60.C397 2009",
+		    "location_x" : 172,
+		    "location_y" : 66,
+		    "section" : 24,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HB3722.A357 2007",
+		    "end" : "HC106.6.S74 2000",
+		    "location_x" : 172,
+		    "location_y" : 78,
+		    "section" : 25,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HD30.3.H37 1997",
+		    "end" : "HD57.7.E44 1988",
+		    "location_x" : 172,
+		    "location_y" : 85,
+		    "section" : 26,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HD2731.B4",
+		    "end" : "HD6054.2.U6.S65 1992",
+		    "location_x" : 172,
+		    "location_y" : 97,
+		    "section" : 27,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HF91.U57 2001",
+		    "end" : "HF5387.B687 2009",
+		    "location_x" : 172,
+		    "location_y" : 105,
+		    "section" : 28,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HF5549.5.M5.G46 2006",
+		    "end" : "HF5661.E54 2007",
+		    "location_x" : 172,
+		    "location_y" : 117,
+		    "section" : 29,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HG930.5.M269 2009",
+		    "end" : "HG4050.M66 2011",
+		    "location_x" : 172,
+		    "location_y" : 124,
+		    "section" : 30,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HG4905.M78 2000",
+		    "end" : "HG4915.S665 1998",
+		    "location_x" : 172,
+		    "location_y" : 136,
+		    "section" : 31,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HG6024.A3.K387 2005",
+		    "end" : "HJ141.W5",
+		    "location_x" : 172,
+		    "location_y" : 144,
+		    "section" : 32,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HJ4120.C63 1978",
+		    "end" : "HM251.W25",
+		    "location_x" : 172,
+		    "location_y" : 156,
+		    "section" : 33,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HN65.F85 1992",
+		    "end" : "HQ767.5.U5.M85 1991",
+		    "location_x" : 172,
+		    "location_y" : 163,
+		    "section" : 34,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HQ767.5.U5.P73 1999",
+		    "end" : "HT123.G723 2010",
+		    "location_x" : 172,
+		    "location_y" : 175,
+		    "section" : 35,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HV741.G37",
+		    "end" : "HV6197.U6 M85 2010",
+		    "location_x" : 172,
+		    "location_y" : 182,
+		    "section" : 36,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "AC1.G3 V.1",
+		    "end" : "BF175.5.T73 E96 2007",
+		    "location_x" : 324,
+		    "location_y" : 20,
+		    "section" : 37,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "DA566.7 B75",
+		    "end" : "DR1539.T83 1996",
+		    "location_x" : 324,
+		    "location_y" : 27,
+		    "section" : 38,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "DR1674.M87 B75 1995",
+		    "end" : "DS935.774.J44 2010",
+		    "location_x" : 324,
+		    "location_y" : 38,
+		    "section" : 39,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "E188.A54 1989",
+		    "end" : "E332.9.S33 2006",
+		    "location_x" : 324,
+		    "location_y" : 58,
+		    "section" : 41,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "GE60.D69 1999",
+		    "end" : "HA217.A4 2002",
+		    "location_x" : 324,
+		    "location_y" : 66,
+		    "section" : 42,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HA421.M42 1967",
+		    "end" : "HB3717.2008.M35 2010",
+		    "location_x" : 324,
+		    "location_y" : 78,
+		    "section" : 43,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HD57.7.F353 1996",
+		    "end" : "HD62.5.D65 2003",
+		    "location_x" : 324,
+		    "location_y" : 85,
+		    "section" : 44,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HD62.5.E39 1999",
+		    "end" : "HD2121.M5",
+		    "location_x" : 324,
+		    "location_y" : 97,
+		    "section" : 45,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HF5387.B829 1998",
+		    "end" : "HF5438.3.S34 2003",
+		    "location_x" : 324,
+		    "location_y" : 105,
+		    "section" : 46,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HF5438.4.C73",
+		    "end" : "HF5549.5.M5.F56 1995",
+		    "location_x" : 324,
+		    "location_y" : 117,
+		    "section" : 47,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HG4501.M59 1987",
+		    "end" : "HG4530.G798 2006",
+		    "location_x" : 324,
+		    "location_y" : 124,
+		    "section" : 48,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 35
+		  },
+		  {
+		    "begin" : "HG4530.K57 2006",
+		    "end" : "HG4905.M78 1999",
+		    "location_x" : 324,
+		    "location_y" : 136,
+		    "section" : 49,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 35
+		  },
+		  {
+		    "begin" : "HJ192.5.B83 1999",
+		    "end" : "HJ3863.R4 1930",
+		    "location_x" : 324,
+		    "location_y" : 144,
+		    "section" : 50,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 35
+		  },
+		  {
+		    "begin" : "HV6201.C694 1972",
+		    "end" : "HV8078.R4 1997",
+		    "location_x" : 19,
+		    "location_y" : 326,
+		    "section" : 51,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "JK251..F54 1904",
+		    "end" : "JK3589.B37 2000",
+		    "location_x" : 19,
+		    "location_y" : 336,
+		    "section" : 52,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "JK3816.S44 2006",
+		    "end" : "K1112.R53 2008",
+		    "location_x" : 19,
+		    "location_y" : 344,
+		    "section" : 53,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "ND1351.K6713 2007",
+		    "end" : "PE1583.H43 2000",
+		    "location_x" : 19,
+		    "location_y" : 355,
+		    "section" : 54,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "PE1585.H34 1978",
+		    "end" : "PN1992.3.U5.S72 1998",
+		    "location_x" : 19,
+		    "location_y" : 363,
+		    "section" : 55,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "PR5237.A4",
+		    "end" : "PR6045 H245 1969 V.2",
+		    "location_x" : 19,
+		    "location_y" : 375,
+		    "section" : 56,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "PR6045.I5.A16 1958",
+		    "end" : "PS1300.F68 V.24",
+		    "location_x" : 19,
+		    "location_y" : 383,
+		    "section" : 57,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "PS3603.H35735 T47 2010",
+		    "end" : "QA76.54.R4292 2003",
+		    "location_x" : 19,
+		    "location_y" : 394,
+		    "section" : 58,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "QA7.575.B63 2010",
+		    "end" : "QA184.M464 1998",
+		    "location_x" : 19,
+		    "location_y" : 403,
+		    "section" : 59,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "RC497.R72",
+		    "end" : "T58.64.B795 2006",
+		    "location_x" : 19,
+		    "location_y" : 413,
+		    "section" : 60,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "T58.64.I83 2000",
+		    "end" : "TS156.J87 1988",
+		    "location_x" : 19,
+		    "location_y" : 421,
+		    "section" : 61,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "JC 311.S536 1998",
+		    "end" : "JK246.Z38 2011",
+		    "location_x" : 172,
+		    "location_y" : 336,
+		    "section" : 62,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "KF4886.B35 2005",
+		    "end" : "LB1048.5 M393 2005",
+		    "location_x" : 172,
+		    "location_y" : 344,
+		    "section" : 63,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "N8217.C792.N45 2011",
+		    "end" : "ND1340.C55 1979",
+		    "location_x" : 172,
+		    "location_y" : 355,
+		    "section" : 64,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "PN1992.5.C85 2004",
+		    "end" : "PN6109.9.W65 1995",
+		    "location_x" : 172,
+		    "location_y" : 363,
+		    "section" : 65,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "PR2920.A22",
+		    "end" : "PR5197.P6",
+		    "location_x" : 172,
+		    "location_y" : 375,
+		    "section" : 66,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "PS1302.F3 1976",
+		    "end" : "PS3505.A87.Z83",
+		    "location_x" : 172,
+		    "location_y" : 383,
+		    "section" : 67,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "PS3558.A44363.L63 2010",
+		    "end" : "PS3603.A8758 B74 2011",
+		    "location_x" : 172,
+		    "location_y" : 394,
+		    "section" : 68,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "QA185.D37.G75 1999",
+		    "end" : "QH368.T65",
+		    "location_x" : 172,
+		    "location_y" : 403,
+		    "section" : 69,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "RA971.35.B67 2011",
+		    "end" : "RC495.M45 1992",
+		    "location_x" : 172,
+		    "location_y" : 413,
+		    "section" : 70,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "TS156.L328 2006",
+		    "end" : "Z118.5.R67 2009",
+		    "location_x" : 172,
+		    "location_y" : 421,
+		    "section" : 71,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HV8079.A7.B68 2004",
+		    "end" : "HV9960.G7.R87 1993",
+		    "location_x" : 324,
+		    "location_y" : 326,
+		    "section" : 72,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "HX11.I5.B714 V.1",
+		    "end" : "JC 311.O67 2009",
+		    "location_x" : 324,
+		    "location_y" : 336,
+		    "section" : 73,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "KF8748.C425 2009",
+		    "end" : "LB3235.M25 2003",
+		    "location_x" : 324,
+		    "location_y" : 344,
+		    "section" : 74,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "LB3409.U5.B88 2002",
+		    "end" : "N8515.5.U6.I42 1999",
+		    "location_x" : 324,
+		    "location_y" : 355,
+		    "section" : 75,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "PN6110.B75.B54 2002",
+		    "end" : "PQ9939.C68.R513 2008",
+		    "location_x" : 324,
+		    "location_y" : 363,
+		    "section" : 76,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "PR19.H3 1967",
+		    "end" : "PR2911.W45 2006",
+		    "location_x" : 324,
+		    "location_y" : 375,
+		    "section" : 77,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "PS3505.H3224.A6 1995",
+		    "end" : "PS3531.O7335.F6 2011",
+		    "location_x" : 324,
+		    "location_y" : 383,
+		    "section" : 78,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "PS3531.O752.A14 1968",
+		    "end" : "PS3558.A42169.R45 2003",
+		    "location_x" : 324,
+		    "location_y" : 394,
+		    "section" : 79,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "QH369.G4",
+		    "end" : "RA394.R43 1994",
+		    "location_x" : 324,
+		    "location_y" : 403,
+		    "section" : 80,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "RA394.S38 2000",
+		    "end" : "RA971.32.G36 2008",
+		    "location_x" : 324,
+		    "location_y" : 413,
+		    "section" : 81,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  },
+		  {
+		    "begin" : "Z124.C47",
+		    "end" : "Z4.T482 1975",
+		    "location_x" : 324,
+		    "location_y" : 421,
+		    "section" : 82,
+		    "sector" : 1,
+		    "size_h" : 8,
+		    "size_w" : 111
+		  }
+		];
+		
+		// inspect find button
+		var findBook = document.getElementById("findBook");
+		findBook.onclick = findTheBook;
+
+		function findTheBook() { // evaluate the textbox, find and display the stack
+		    // get call number from textbox
+		    var callNumber = document.getElementById("callNumber").value;
+		    var callNumber = callNumber.toUpperCase();
+		    document.getElementById("callNumber").value = callNumber;
+		    //alert(normalizeLC(callNumber));
+		    var inStock = function(callNumber) {
+		        foundBook = false;
+		        for (var i=0; i < sections.length; i++) { 
+		            var beginSection = sections[i].begin, endSection = sections[i].end, book = callNumber;
+					if (normalizeLC(book) == "error") {return foundBook;}
+		            if (normalizeLC(book) >= normalizeLC(beginSection) && normalizeLC(book) <= normalizeLC(endSection)) {
+		                //alert(" book: "+normalizeLC(book)+" / begin: "+normalizeLC(beginSection)+" / end: "+normalizeLC(endSection));
+		                sectionFound = sections[i];
+		                foundBook = true;
+		            }
+		        }
+		        return foundBook;
+		    }
+		    var inStock = inStock(callNumber);
+		    if (inStock == true) {
+				// hides error message
+				document.getElementById("message").innerHTML = "";
+		        // only if the call number was found
+		        sectionLocationX = sectionFound.location_x;
+		        sectionLocationY = sectionFound.location_y;
+		        sectionSizeW = sectionFound.size_w;
+		        sectionSizeH = sectionFound.size_h;
+		        // show canvas wrapper and message
+		        document.getElementById('myBodyPage').scrollIntoView();
+		        document.getElementById("mapWrapper").style.display = "none";
+		        document.getElementById("loading").style.display = "block";
+		        setTimeout(function() {
+		            document.getElementById("loading").style.display = "none";                
+		            document.getElementById("mapWrapper").style.display = "block";                
+		            // iniciate canvas 
+		            var myMap=document.getElementById("myMap");
+		            var ctx=myMap.getContext("2d");
+		            // iniciate PNG map
+		            var imageMap=new Image();
+		            // display map
+		            imageMap.src = "images/book_locator_map.gif";
+		            imageMap.onload = function() {
+		                ctx.drawImage(imageMap,0,0);
+		                ctx.fillStyle = "#FFFF00"; // yellow
+		                ctx.fillRect(sectionLocationX-7,sectionLocationY,sectionSizeW+14,sectionSizeH);
+		                ctx.fillStyle = "#990000"; // red
+		                ctx.fillRect(sectionLocationX,sectionLocationY,sectionSizeW,sectionSizeH);
+		                ctx.font="bold 8pt Arial";
+		                ctx.fillStyle="#FFFFFF"; //white
+		                ctx.textAlign="center";
+		                ctx.fillText(sectionFound.section,sectionLocationX+(sectionSizeW/2),sectionLocationY+8);
+		                ctx.font="normal 13pt Monotype";
+		                ctx.fillStyle="#990000"; // red
+		                ctx.textAlign="center";
+		                ctx.fillText(callNumber,225,260);
+		                ctx.font="normal 10pt Arial";
+		                ctx.fillText("in section "+sectionFound.section,225,282);
+		            };
+		        },600);
+		    }
+		    if (inStock == false) { // only if the call number wasn't found
+		        document.getElementById("mapWrapper").style.display = "none";
+				document.getElementById("message").innerHTML = "No location was retrieved for this book.";
+		    }
+		}
+	</script>
+</body>
+</html>
+
+    		
