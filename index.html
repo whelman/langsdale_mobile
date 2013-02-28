@@ -40,20 +40,14 @@
 		<div data-role="content">
 			
 			<div id="mainMenu">
-			
-					<!-- BEGIN worldcat.org search box -->			
-					<form name="wcfn" id="wcfn" method="get" accept-charset="UTF-8" action="http://ubalt.worldcat.org/m/search" target="_top">
-						<input type="hidden" name="qt" value="affiliate_wcl_all" />
-						<input type="hidden" name="ai" value="wclocal_ubalt" />
-						<label for="search_basic">Search in Library’s Catalog</label>
-						<input type="search" name="q" id="search-basic" placeholder="Tap to enter subject, title or author" data-theme="d"/>
-					</form>
-					<!-- END worldcat.org search box -->
 
 					<!-- BEGIN mobile menu -->
 					<ul data-role="listview" data-inset="true" data-filter="false" id="smallMenu">
 						<li class="noInKiosk">
 							<a href="book-search.cfm" data-ajax="false"><img src="images/icon-locate-book.png" class="ui-li-icon" alt="Locate a Book" />Locate a Book </a>
+						</li>
+						<li class="noInKiosk">
+							<a href="catalog-search.html" data-ajax="false"><img src="images/icon-catalog-search.png" class="ui-li-icon" alt="Locate a Book" />Book Catalog Search </a>
 						</li>
 						<li>
 							<a href="ask-langsdale.html"  data-ajax="false"><img src="images/icon-ask-librarian.png" class="ui-li-icon" alt="Ask a Librarian" />Ask a Librarian</a>
@@ -82,11 +76,19 @@
 			
 				<!-- BEGIN large screen & kiosk menu -->
 				<ul data-role="listview" data-inset="true" id="largeMenu">
+					
 					<li class="ui-body-c">
 						<a href="book-search.cfm" data-ajax="false">
 							<img src="images/icon-locate-book-large.png" alt="Locate a Book" />
 							<h3>Locate a Book</h3>
 							<p>Find books available right now</p>
+						</a>
+					</li>
+					<li class="ui-body-c">
+						<a href="catalog-search.html" data-ajax="false">
+							<img src="images/icon-catalog-search-large.png" alt="Catalog Search" />
+							<h3>Book Catalog Search</h3>
+							<p>Search books in Langsdale's Catalog</p>
 						</a>
 					</li>
 					<li class="ui-body-c">
