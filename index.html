@@ -2,15 +2,15 @@
 
 <html>
 <head>
-    <meta charset="UTF-8">
+	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
-	<link rel="stylesheet" href="themes/ub_theme.min.css" />
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
-	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+	<link rel="stylesheet" href="themes/lotg_theme.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile.structure-1.3.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
 	<script src="js/langsdale_mobile.js"></script>
-	<link rel="stylesheet" href="langsdale-on-the-go.css" />
-    <title>Langsdale on the Go!</title>
+	<link rel="stylesheet" type="text/css" href="langsdale-on-the-go.css" />
+    <title>Langsdale on the Go! 2013</title>
     	<!-- Google Analytics code -->
     		<script type="text/javascript">
 
@@ -40,20 +40,14 @@
 		<div data-role="content">
 			
 			<div id="mainMenu">
-			
-					<!-- BEGIN worldcat.org search box -->			
-					<form name="wcfn" id="wcfn" method="get" accept-charset="UTF-8" action="http://ubalt.worldcat.org/m/search" target="_top">
-						<label for="search_basic">Search in Library’s Catalog</label>
-						<input type="hidden" name="qt" value="affiliate_wcl_all" />
-						<input type="hidden" name="ai" value="wclocal_ubalt" />
-						<input type="search" name="q" id="search-basic" placeholder="Tap to enter subject, title or author" data-theme="d"/>
-					</form>
-					<!-- END worldcat.org search box -->
 
 					<!-- BEGIN mobile menu -->
 					<ul data-role="listview" data-inset="true" data-filter="false" id="smallMenu">
 						<li class="noInKiosk">
 							<a href="book-search.cfm" data-ajax="false"><img src="images/icon-locate-book.png" class="ui-li-icon" alt="Locate a Book" />Locate a Book </a>
+						</li>
+						<li class="noInKiosk">
+							<a href="catalog-search.html" data-ajax="false"><img src="images/icon-catalog-search.png" class="ui-li-icon" alt="Locate a Book" />Book Catalog Search </a>
 						</li>
 						<li>
 							<a href="ask-langsdale.html"  data-ajax="false"><img src="images/icon-ask-librarian.png" class="ui-li-icon" alt="Ask a Librarian" />Ask a Librarian</a>
@@ -82,11 +76,19 @@
 			
 				<!-- BEGIN large screen & kiosk menu -->
 				<ul data-role="listview" data-inset="true" id="largeMenu">
+					
 					<li class="ui-body-c">
 						<a href="book-search.cfm" data-ajax="false">
 							<img src="images/icon-locate-book-large.png" alt="Locate a Book" />
 							<h3>Locate a Book</h3>
 							<p>Find books available right now</p>
+						</a>
+					</li>
+					<li class="ui-body-c">
+						<a href="catalog-search.html" data-ajax="false">
+							<img src="images/icon-catalog-search-large.png" alt="Catalog Search" />
+							<h3>Book Catalog Search</h3>
+							<p>Search books in Langsdale's Catalog</p>
 						</a>
 					</li>
 					<li class="ui-body-c">
@@ -111,7 +113,7 @@
 						</a>
 					</li>
 					<li class="noInKiosk ui-body-c">
-						<a href="find-pc.html">
+						<a href="find-pc.html" data-ajax="false">
 							<img src="images/icon-find-pc-large.png" alt="Hours and Locations" />
 							<h3>Available Computers</h3>
 							<p>Currently available computers.</p>

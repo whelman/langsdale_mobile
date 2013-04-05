@@ -3,13 +3,16 @@
 <cfset theme = 'c' />
 <html>
 	<head>
-		<meta name="viewport" content="width=device-width,user-scalable=no" />
-		<title>Book Locator</title>
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
-		<link rel="stylesheet" href="langsdale-on-the-go.css" />
-		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+		<link rel="stylesheet" href="themes/lotg_theme.min.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile.structure-1.3.0.min.css" />
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
 		<script src="js/langsdale_mobile.js"></script>
+		<link rel="stylesheet" type="text/css" href="langsdale-on-the-go.css" />
+		<title>Book Locator</title>
+		
     	<!-- Google Analytics code -->
     		<script type="text/javascript">
 

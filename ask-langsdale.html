@@ -2,14 +2,14 @@
 
 <html>
 <head>
-    <meta charset="UTF-8">
+	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
-	<link rel="stylesheet" href="themes/ub_theme.min.css" />
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
-	<link rel="stylesheet" href="langsdale-on-the-go.css" />
-	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+	<link rel="stylesheet" href="themes/lotg_theme.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile.structure-1.3.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
 	<script src="js/langsdale_mobile.js"></script>
+	<link rel="stylesheet" type="text/css" href="langsdale-on-the-go.css" />
     <title>Ask a Librarian</title>
     	<!-- Google Analytics code -->
     		<script type="text/javascript">
@@ -37,9 +37,9 @@
 		
 		<div data-role="content">
 			<div id="mainMenu">
-			<iframe src="http://libraryh3lp.com/mobile/langsdale_mobile@chat.libraryh3lp.com?skin=16957" style="width: 100%; height:200px;"></iframe>
-			
-			<h3>Langsdale Library</h3>
+			<iframe id="chatElement" src="http://libraryh3lp.com/mobile/langsdale_mobile@chat.libraryh3lp.com?skin=16957" style="width: 100%; height:200px;"></iframe>
+			<a id="smsElement" href="sms:4106304255" data-role="button" data-icon="star">Text a Librarian: chat reference</a>
+			<h4>Langsdale Library</h4>
 			<p>1420 Maryland Avenue, Baltimore, MD 21201</p>
 			<table>
 				<tbody>

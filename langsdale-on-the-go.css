@@ -55,12 +55,16 @@ h3 {
 	width:60% !important;
 }
 
-#smallMenu {
+#smallMenu, #smsElement {
 	display:none !important;
 }
 
-#largeMenu {
+#largeMenu, #chatElement {
 	display:block !important;
+}
+
+#search_reserves {
+	data-filter: false;
 }
 
 /* for iPhone */	
@@ -116,16 +120,12 @@ h3 {
 		width:100% !important;
 	}
 	
-	#smallMenu {
+	#smallMenu, #smsElement {
 		display:block !important;
 	}
 	
-	#largeMenu {
+	#largeMenu, #chatElement {
 		display:none !important;
-	}
-	
-	#bl_notice {
-		font-size:11px;
 	}
 }
 

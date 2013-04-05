@@ -4,11 +4,12 @@
 <cfset title = 'UB Book Search' />
 <div data-role="page" data-theme="#theme#" data-title="#title#">
 	<cfinclude template="templates/_header.cfm" />
-	<div data-role="content">		
+	<div data-role="content">	
 		
 	<cfform id="bookSearchForm" name="bookSearchForm" action="#CGI.SCRIPT_NAME#" method="post" scriptsrc="http://www.ubalt.edu/CFIDE/scripts/">
 		
-				<select name="type">
+				<!--- delete me --->
+				<!--- select name="type">
 					<option value="wrd" selected="selected">Word/s anywhere</option>
 					<option value="ttl">Title beginning with...</option>
 					<option value="wti">Title word/s</option>
@@ -17,31 +18,32 @@
 					<option value="sub">Subject beginning with...</option>
 					<option value="wsu">Subject word/s</option>
 					<option value="lci">Call number</option>
-				</select>
+				</select --->
 				<p>
 					<!--- input type="text" name="term" / --->
-					<input type="search" name="term" />
-					<input type="submit" name="submit" value="Search" />
+					<input type="search" name="term" placeholder="Find a book in the library" />
+					<input type="submit" name="submit" value="Search..." data-theme="b" />
 				</p>
 		</cfform>
 			
 		<cfif IsDefined('form.term') OR IsDefined('URL.term')>
 			<cfif IsDefined('form.term')>
 					<cfset term = '#form.term#' />
-					<cfset type = '#form.type#' />
+					<!---cfset type = '#form.type#' / --->
 				<cfelseif IsDefined('URL.term')>
 					<cfset term = '#URL.term#' />
-					<cfset type = '#URL.type#' />
+					<!---cfset type = '#URL.type#' / --->
 			</cfif>
-			<cfhttp url="http://catalog.umd.edu/X?op=find&code=#type#&request=#term#&base=UB">
+			<!--- cfhttp url="http://catalog.umd.edu/X?op=find&code=#type#&request=#term#&base=UB" --->
+			<cfhttp url="http://catalog.umd.edu/X?op=find&request=#term#&base=UB">
+			
 			<cfset aleph=XmlParse(cfhttp.Filecontent) />
 
 		<!---
 		<cfdump var="#aleph#" />
 		--->
 		
-		<h3 style="color:red;">#term#</h3>
-		<br />
+		<small>Results for: </small><span style="color:red;">#term#</span>
 		<cfif #IsDefined('aleph.find.error.XmlText')#>
 		No results were retrieved for this search
 		<cfelse>
@@ -56,7 +58,7 @@
 				<cfset range = #CountVar# + 4 />
 			</cfif>
 			
-	<ul data-role="listview">
+	<ul data-role="listview" data-inset="true">
 		<cftry>
 		<cfloop condition="#CountVar# LTE #range#">
 		<cfhttp url="http://catalog.umd.edu/X?op=present&set_entry=#i#&set_number=#aleph.find.set_number.XmlText#" />
@@ -74,15 +76,16 @@
 									<cfset titleReverse = '#reverse(alephRecord.present.record.metadata.oai_marc.varfield[j].subfield.XmlText)#' />
 									<cfset titleReverse = '#RemoveChars(titleReverse,1,2)#' />
 									<cfset title = '#reverse(titleReverse)#' />
-									<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-d">#CountVar#. #title#</li>
 									<li>
 										<a href="book-locator-display.html?cn=#holdings['circ-status']['item-data'][k]['location'].XmlText#&bt=#title#"  data-ajax="false" target="_blank">
-										<h3>#holdings['circ-status']['item-data'][k]['location'].XmlText#</h3>
+										<span class="ui-li-count"><small>View Map</small></span>
+										<h3>#CountVar#. #title#</h2>
 										<p>
-											<strong>Status: #holdings['circ-status']['item-data'][k]['due-date'].XmlText#</strong>
+											<strong>#holdings['circ-status']['item-data'][k]['location'].XmlText#</strong>
 										</p>
-										<p>Location:  #holdings['circ-status']['item-data'][k]['collection'].XmlText#</p>
-										<cfset firstLetter = '#left(holdings['circ-status']['item-data'][k]['location'].XmlText,1)#' />
+										<!---p>
+											Status: #holdings['circ-status']['item-data'][k]['due-date'].XmlText#&nbsp;&nbsp;|&nbsp;&nbsp;Location:  #holdings['circ-status']['item-data'][k]['collection'].XmlText#</p>
+										<cfset firstLetter = '#left(holdings['circ-status']['item-data'][k]['location'].XmlText,1)#' / --->
 										</a>
 										<!---a href="book-locator-display.html?cn=#holdings['circ-status']['item-data'][k]['location'].XmlText#&bt=#title#"  data-ajax="false">#holdings['circ-status']['item-data'][k]['location'].XmlText#</a --->
 									</li>
@@ -99,9 +102,10 @@
 			</cfcatch>
 		</cftry>
 	</ul>
-			<br />
 			<p>
-				<cfif IsDefined('URL.term')><a href="javascript: history.go(-1)" data-ajax="false">&laquo;&nbsp;Previous</a> | </cfif><cfif NOT IsDefined('end')><a href="?recnum=#i#&count=#CountVar#&term=#term#&type=#type#" data-ajax="false">Next&nbsp;&raquo;</a><cfelse>No more records</cfif>
+				<!--- cfif IsDefined('URL.term')><a href="javascript: history.go(-1)" data-ajax="false">&laquo;&nbsp;Previous</a> | </cfif><cfif NOT IsDefined('end')><a href="?recnum=#i#&count=#CountVar#&term=#term#&type=#type#" data-ajax="false">Next&nbsp;&raquo;</a><cfelse>No more records</cfif --->
+				<cfif IsDefined('URL.term')><a href="javascript: history.go(-1)" data-ajax="false">&laquo;&nbsp;Previous</a> | </cfif><cfif NOT IsDefined('end')><a href="?recnum=#i#&count=#CountVar#&term=#term#" data-ajax="false">Next&nbsp;&raquo;</a><cfelse>No more records</cfif>
+				
 			</p>
 		</cfif>
 		
