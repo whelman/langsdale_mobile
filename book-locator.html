@@ -68,809 +68,557 @@
 
 	</div><!-- /page -->
 	<script>
-		// BOOK LOCATOR
-		// NOTE: Temporarily removed sections 4, 22 and 40. Empty during shifting project
-		
-		//load data from web service
-		//var source = "json/langsdale_sections.json";
-		///var xmlhttp = new XMLHttpRequest();
-		//gets the data
-		//xmlhttp.open("GET",source,false);
-		//xmlhttp.send("");
-		//sections = JSON.parse(xmlhttp.responseText);
-		
-		sections = [
-		  {
-		    "begin" : "BL31.C75 1998",
-		    "end" : "BV5082.3.E87 2006",
-		    "location_x" : 19,
-		    "location_y" : 20,
-		    "section" : 1,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "BX382.C493 2004",
-		    "end" : "D455.R49 2007",
-		    "location_x" : 19,
-		    "location_y" : 27,
-		    "section" : 2,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "E184.A1 S37 2003",
-		    "end" : "E187.5 H88 1999",
-		    "location_x" : 19,
-		    "location_y" : 46,
-		    "section" : 3,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-			"begin" : "E672 G7617",
-			"end" : "E895 Z56 2006",
-		    "location_x" : 19,
-		    "location_y" : 58,
-		    "section" : 5,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "E901.1.O23 A3 2006",
-		    "end" : "F229.S633",
-		    "location_x" : 19,
-		    "location_y" : 66,
-		    "section" : 6,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HC106.6.S74 2001",
-		    "end" : "HC453.Z36 1999",
-		    "location_x" : 19,
-		    "location_y" : 78,
-		    "section" : 7,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HC460.5 E275 1993",
-		    "end" : "HD30.3.G56 1993",
-		    "location_x" : 19,
-		    "location_y" : 85,
-		    "section" : 8,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HD6054.3A73 2006",
-		    "end" : "HD9696.C64.A863 1988",
-		    "location_x" : 19,
-		    "location_y" : 97,
-		    "section" : 9,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HD9696.C64.G615 1996",
-		    "end" : "HF91.U57 2000",
-		    "location_x" : 19,
-		    "location_y" : 105,
-		    "section" : 10,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HF5661.G44 1990 V.1",
-		    "end" : "HF5833.W67",
-		    "location_x" : 19,
-		    "location_y" : 117,
-		    "section" : 11,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HF5837.A38 2006",
-		    "end" : "HG925.U53 1998",
-		    "location_x" : 96,
-		    "location_y" : 124,
-		    "section" : 12,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 35
-		  },
-		  {
-		    "begin" : "HG4915.S665 1999",
-		    "end" : "HG4961.M66 2004",
-		    "location_x" : 96,
-		    "location_y" : 136,
-		    "section" : 13,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 35
-		  },
-		  {
-		    "begin" : "HG4961 M367 1987 V.1",
-		    "end" : "HG6024.A3 J638 1999",
-		    "location_x" : 96,
-		    "location_y" : 144,
-		    "section" : 14,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 35
-		  },
-		  {
-		    "begin" : "HM258.C843 1998",
-		    "end" : "HM1033.G53 2002",
-		    "location_x" : 96,
-		    "location_y" : 156,
-		    "section" : 15,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 35
-		  },
-		  {
-		    "begin" : "HN5 S5 1964",
-		    "end" : "HN65.E44 2000",
-		    "location_x" : 96,
-		    "location_y" : 163,
-		    "section" : 16,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 35
-		  },
-		  {
-		    "begin" : "HT123.H37",
-		    "end" : "HV13.P68 2006",
-		    "location_x" : 96,
-		    "location_y" : 175,
-		    "section" : 17,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 35
-		  },
-		  {
-		    "begin" : "HV16.W58 1998",
-		    "end" : "HV741.F38 1998",
-		    "location_x" : 96,
-		    "location_y" : 182,
-		    "section" : 18,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 35
-		  },
-		  {
-		    "begin" : "BF176.A5 1997",
-		    "end" : "BJ2121.S48 2005",
-		    "location_x" : 172,
-		    "location_y" : 20,
-		    "section" : 19,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "D509.W85 2007",
-		    "end" : "DA566.7 A18",
-		    "location_x" : 172,
-		    "location_y" : 27,
-		    "section" : 20,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "DT12 G86",
-		    "end" : "E184.A1 R644 2005",
-		    "location_x" : 172,
-		    "location_y" : 46,
-		    "section" : 21,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "E333.K46 2003",
-		    "end" : "E671 G3",
-		    "location_x" : 172,
-		    "location_y" : 58,
-		    "section" : 23,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "F229.S7 A3 2007",
-		    "end" : "GE60.C397 2009",
-		    "location_x" : 172,
-		    "location_y" : 66,
-		    "section" : 24,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HB3722.A357 2007",
-		    "end" : "HC106.6.S74 2000",
-		    "location_x" : 172,
-		    "location_y" : 78,
-		    "section" : 25,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HD30.3.H37 1997",
-		    "end" : "HD57.7.E44 1988",
-		    "location_x" : 172,
-		    "location_y" : 85,
-		    "section" : 26,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HD2731.B4",
-		    "end" : "HD6054.2.U6.S65 1992",
-		    "location_x" : 172,
-		    "location_y" : 97,
-		    "section" : 27,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HF91.U57 2001",
-		    "end" : "HF5387.B687 2009",
-		    "location_x" : 172,
-		    "location_y" : 105,
-		    "section" : 28,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HF5549.5.M5.G46 2006",
-		    "end" : "HF5661.E54 2007",
-		    "location_x" : 172,
-		    "location_y" : 117,
-		    "section" : 29,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HG930.5.M269 2009",
-		    "end" : "HG4050.M66 2011",
-		    "location_x" : 172,
-		    "location_y" : 124,
-		    "section" : 30,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HG4905.M78 2000",
-		    "end" : "HG4915.S665 1998",
-		    "location_x" : 172,
-		    "location_y" : 136,
-		    "section" : 31,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HG6024.A3.K387 2005",
-		    "end" : "HJ141.W5",
-		    "location_x" : 172,
-		    "location_y" : 144,
-		    "section" : 32,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HJ4120.C63 1978",
-		    "end" : "HM251.W25",
-		    "location_x" : 172,
-		    "location_y" : 156,
-		    "section" : 33,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HN65.F85 1992",
-		    "end" : "HQ767.5.U5.M85 1991",
-		    "location_x" : 172,
-		    "location_y" : 163,
-		    "section" : 34,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HQ767.5.U5.P73 1999",
-		    "end" : "HT123.G723 2010",
-		    "location_x" : 172,
-		    "location_y" : 175,
-		    "section" : 35,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HV741.G37",
-		    "end" : "HV6197.U6 M85 2010",
-		    "location_x" : 172,
-		    "location_y" : 182,
-		    "section" : 36,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "AC1.G3 V.1",
-		    "end" : "BF175.5.T73 E96 2007",
-		    "location_x" : 324,
-		    "location_y" : 20,
-		    "section" : 37,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "DA566.7 B75",
-		    "end" : "DR1539.T83 1996",
-		    "location_x" : 324,
-		    "location_y" : 27,
-		    "section" : 38,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "DR1674.M87 B75 1995",
-		    "end" : "DS935.774.J44 2010",
-		    "location_x" : 324,
-		    "location_y" : 38,
-		    "section" : 39,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "E188.A54 1989",
-		    "end" : "E332.9.S33 2006",
-		    "location_x" : 324,
-		    "location_y" : 58,
-		    "section" : 41,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "GE60.D69 1999",
-		    "end" : "HA217.A4 2002",
-		    "location_x" : 324,
-		    "location_y" : 66,
-		    "section" : 42,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HA421.M42 1967",
-		    "end" : "HB3717.2008.M35 2010",
-		    "location_x" : 324,
-		    "location_y" : 78,
-		    "section" : 43,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HD57.7.F353 1996",
-		    "end" : "HD62.5.D65 2003",
-		    "location_x" : 324,
-		    "location_y" : 85,
-		    "section" : 44,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HD62.5.E39 1999",
-		    "end" : "HD2121.M5",
-		    "location_x" : 324,
-		    "location_y" : 97,
-		    "section" : 45,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HF5387.B829 1998",
-		    "end" : "HF5438.3.S34 2003",
-		    "location_x" : 324,
-		    "location_y" : 105,
-		    "section" : 46,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HF5438.4.C73",
-		    "end" : "HF5549.5.M5.F56 1995",
-		    "location_x" : 324,
-		    "location_y" : 117,
-		    "section" : 47,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HG4501.M59 1987",
-		    "end" : "HG4530.G798 2006",
-		    "location_x" : 324,
-		    "location_y" : 124,
-		    "section" : 48,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 35
-		  },
-		  {
-		    "begin" : "HG4530.K57 2006",
-		    "end" : "HG4905.M78 1999",
-		    "location_x" : 324,
-		    "location_y" : 136,
-		    "section" : 49,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 35
-		  },
-		  {
-		    "begin" : "HJ192.5.B83 1999",
-		    "end" : "HJ3863.R4 1930",
-		    "location_x" : 324,
-		    "location_y" : 144,
-		    "section" : 50,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 35
-		  },
-		  {
-		    "begin" : "HV6201.C694 1972",
-		    "end" : "HV8078.R4 1997",
-		    "location_x" : 19,
-		    "location_y" : 326,
-		    "section" : 51,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "JK251..F54 1904",
-		    "end" : "JK3589.B37 2000",
-		    "location_x" : 19,
-		    "location_y" : 336,
-		    "section" : 52,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "JK3816.S44 2006",
-		    "end" : "K1112.R53 2008",
-		    "location_x" : 19,
-		    "location_y" : 344,
-		    "section" : 53,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "ND1351.K6713 2007",
-		    "end" : "PE1583.H43 2000",
-		    "location_x" : 19,
-		    "location_y" : 355,
-		    "section" : 54,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "PE1585.H34 1978",
-		    "end" : "PN1992.3.U5.S72 1998",
-		    "location_x" : 19,
-		    "location_y" : 363,
-		    "section" : 55,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "PR5237.A4",
-		    "end" : "PR6045 H245 1969 V.2",
-		    "location_x" : 19,
-		    "location_y" : 375,
-		    "section" : 56,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "PR6045.I5.A16 1958",
-		    "end" : "PS1300.F68 V.24",
-		    "location_x" : 19,
-		    "location_y" : 383,
-		    "section" : 57,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "PS3603.H35735 T47 2010",
-		    "end" : "QA76.54.R4292 2003",
-		    "location_x" : 19,
-		    "location_y" : 394,
-		    "section" : 58,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "QA7.575.B63 2010",
-		    "end" : "QA184.M464 1998",
-		    "location_x" : 19,
-		    "location_y" : 403,
-		    "section" : 59,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "RC497.R72",
-		    "end" : "T58.64.B795 2006",
-		    "location_x" : 19,
-		    "location_y" : 413,
-		    "section" : 60,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "T58.64.I83 2000",
-		    "end" : "TS156.J87 1988",
-		    "location_x" : 19,
-		    "location_y" : 421,
-		    "section" : 61,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "JC 311.S536 1998",
-		    "end" : "JK246.Z38 2011",
-		    "location_x" : 172,
-		    "location_y" : 336,
-		    "section" : 62,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "KF4886.B35 2005",
-		    "end" : "LB1048.5 M393 2005",
-		    "location_x" : 172,
-		    "location_y" : 344,
-		    "section" : 63,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "N8217.C792.N45 2011",
-		    "end" : "ND1340.C55 1979",
-		    "location_x" : 172,
-		    "location_y" : 355,
-		    "section" : 64,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "PN1992.5.C85 2004",
-		    "end" : "PN6109.9.W65 1995",
-		    "location_x" : 172,
-		    "location_y" : 363,
-		    "section" : 65,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "PR2920.A22",
-		    "end" : "PR5197.P6",
-		    "location_x" : 172,
-		    "location_y" : 375,
-		    "section" : 66,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "PS1302.F3 1976",
-		    "end" : "PS3505.A87.Z83",
-		    "location_x" : 172,
-		    "location_y" : 383,
-		    "section" : 67,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "PS3558.A44363.L63 2010",
-		    "end" : "PS3603.A8758 B74 2011",
-		    "location_x" : 172,
-		    "location_y" : 394,
-		    "section" : 68,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "QA185.D37.G75 1999",
-		    "end" : "QH368.T65",
-		    "location_x" : 172,
-		    "location_y" : 403,
-		    "section" : 69,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "RA971.35.B67 2011",
-		    "end" : "RC495.M45 1992",
-		    "location_x" : 172,
-		    "location_y" : 413,
-		    "section" : 70,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "TS156.L328 2006",
-		    "end" : "Z118.5.R67 2009",
-		    "location_x" : 172,
-		    "location_y" : 421,
-		    "section" : 71,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HV8079.A7.B68 2004",
-		    "end" : "HV9960.G7.R87 1993",
-		    "location_x" : 324,
-		    "location_y" : 326,
-		    "section" : 72,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "HX11.I5.B714 V.1",
-		    "end" : "JC 311.O67 2009",
-		    "location_x" : 324,
-		    "location_y" : 336,
-		    "section" : 73,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "KF8748.C425 2009",
-		    "end" : "LB3235.M25 2003",
-		    "location_x" : 324,
-		    "location_y" : 344,
-		    "section" : 74,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "LB3409.U5.B88 2002",
-		    "end" : "N8515.5.U6.I42 1999",
-		    "location_x" : 324,
-		    "location_y" : 355,
-		    "section" : 75,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "PN6110.B75.B54 2002",
-		    "end" : "PQ9939.C68.R513 2008",
-		    "location_x" : 324,
-		    "location_y" : 363,
-		    "section" : 76,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "PR19.H3 1967",
-		    "end" : "PR2911.W45 2006",
-		    "location_x" : 324,
-		    "location_y" : 375,
-		    "section" : 77,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "PS3505.H3224.A6 1995",
-		    "end" : "PS3531.O7335.F6 2011",
-		    "location_x" : 324,
-		    "location_y" : 383,
-		    "section" : 78,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "PS3531.O752.A14 1968",
-		    "end" : "PS3558.A42169.R45 2003",
-		    "location_x" : 324,
-		    "location_y" : 394,
-		    "section" : 79,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "QH369.G4",
-		    "end" : "RA394.R43 1994",
-		    "location_x" : 324,
-		    "location_y" : 403,
-		    "section" : 80,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "RA394.S38 2000",
-		    "end" : "RA971.32.G36 2008",
-		    "location_x" : 324,
-		    "location_y" : 413,
-		    "section" : 81,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  },
-		  {
-		    "begin" : "Z124.C47",
-		    "end" : "Z4.T482 1975",
-		    "location_x" : 324,
-		    "location_y" : 421,
-		    "section" : 82,
-		    "sector" : 1,
-		    "size_h" : 8,
-		    "size_w" : 111
-		  }
-		];
+	// BOOK LOCATOR
+	// NOTE: Temporarily removed sections 4, 22 and 40. Empty during shifting project
+	
+	//load data from web service
+	//var source = "json/langsdale_sections.json";
+	///var xmlhttp = new XMLHttpRequest();
+	//gets the data
+	//xmlhttp.open("GET",source,false);
+	//xmlhttp.send("");
+	//sections = JSON.parse(xmlhttp.responseText);
+	
+	sections = [
+			{
+				"begin" : "BL2775.3 .D46 2006",
+				"end" : "CB245 .S58 2006",
+				"location_x" : 19,
+				"location_y" : 20,
+				"section" : 1,
+				"sector" : 1,
+				"size_h" : 8,
+				"size_w" : 111
+			},
+			{
+				"begin" : "CB251 .K38 2004",
+				"end" : "D810 P6C452",
+				"location_x" : 19,
+				"location_y" : 27,
+				"section" : 2,
+				"sector" : 1,
+				"size_h" : 8,
+		  		"size_w" : 111
+			},
+		   	{
+			    "begin" : "E353.1 .S8 B47 2005",
+			    "end" : "E840.6 .W545 2008",
+			    "location_x" : 19,
+			    "location_y" : 38,
+			    "section" : 3,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+		  	},		  
+			{
+			    "begin" : "E840.8 A34L5",
+			    "end" : "F274. B55",
+			    "location_x" : 19,
+			    "location_y" : 46,
+			    "section" : 4,
+			    "sector" : 1,
+			    "size_h" : 8,
+		 	    "size_w" : 111
+			  },			  			  			  	
+			  {
+				"begin" : "HD61 .M395 2005",
+				"end" : "HD2785. S437 2005",
+			    "location_x" : 19,
+			    "location_y" : 58,
+			    "section" : 5,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			  {
+			    "begin" : "HD2785 .W46 1999",
+			    "end" : "HD9502.5 .C542 R83 2009",
+			    "location_x" : 19,
+			    "location_y" : 66,
+			    "section" : 6,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			  {
+			    "begin" : "HG4028 .S7 F45 2006",
+			    "end" : "HJ2053 .A1 M52 2001",
+			    "location_x" : 19,
+			    "location_y" : 78,
+			    "section" : 7,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			  {
+			    "begin" : "HJ2053 .A1 P65",
+			    "end" : "HM1221 .R436 2007",
+			    "location_x" : 19,
+			    "location_y" : 85,
+			    "section" : 8,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			  {
+			    "begin" : "HV9468 .A15 2006",
+			    "end" : "JK1 .C6635 2009",
+			    "location_x" : 19,
+			    "location_y" : 97,
+			    "section" : 9,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			  {
+			    "begin" : "JK9 .C73 2004",
+			    "end" : "JZ5560 .J66 2002",
+			    "location_x" : 19,
+			    "location_y" : 105,
+			    "section" : 10,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			  {
+			    "begin" : "PA813 .R7",
+			    "end" : "PL248 .P34 O8413 2007",
+			    "location_x" : 19,
+			    "location_y" : 117,
+			    "section" : 11,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			  {
+			    "begin" : "PL248 .P34 Y9313 1997",
+			    "end" : "PN228 .M4R6",
+			    "location_x" : 96,
+			    "location_y" : 124,
+			    "section" : 12,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 35
+			  },
+			  {
+			    "begin" : "PR4558 .A1 1950",
+			    "end" : "PR5824 .R6",
+			    "location_x" : 96,
+			    "location_y" : 136,
+			    "section" : 13,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 35
+			  },
+			  {
+			    "begin" : "PR5841 W8A6 1977",
+			    "end" : "PR6019 .O9 Z833",
+			    "location_x" : 96,
+			    "location_y" : 144,
+			    "section" : 14,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 35
+			  },
+			  {
+			    "begin" : "PS3537 .T3234 A6 2001",
+			    "end" : "PS3553 .L345 P68 2003",
+			    "location_x" : 96,
+			    "location_y" : 156,
+			    "section" : 15,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 35
+			  },
+			  {
+			    "begin" : "PS3553 .L389 B32 2006",
+			    "end" : "PS3563 .C3622",
+			    "location_x" : 96,
+			    "location_y" : 163,
+			    "section" : 16,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 35
+			  },
+			  {
+			    "begin" : "QH75 .C685 1999",
+			    "end" : "R154 .T47 .R4",
+			    "location_x" : 96,
+			    "location_y" : 175,
+			    "section" : 17,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 35
+			  },
+			  {
+			    "begin" : "R154 .W32 .C63",
+			    "end" : "RA440.87 .U6 T6 2001",
+			    "location_x" : 96,
+			    "location_y" : 182,
+			    "section" : 18,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 35
+			  },
+			  {
+			    "begin" : "BF432.5 .K38 L53 2000",
+			    "end" : "BL2760 .J33 2004",
+			    "location_x" : 172,
+			    "location_y" : 20,
+			    "section" : 19,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			  {
+			    "begin" : "D810 P7G3",
+			    "end" : "DK170 W27 1968",
+			    "location_x" : 172,
+			    "location_y" : 27,
+			    "section" : 20,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			  {
+			    "begin" : "E183.7.R89 2004",
+			    "end" : "E342 .K47 2009",
+			    "location_x" : 172,
+			    "location_y" : 46,
+			    "section" : 21,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+	
+			  },
+			  {
+			    "begin" : "F275 .42 .K49 A3 1998",
+			    "end" : "HA31.2 .R43 2005",
+			    "location_x" : 172,
+			    "location_y" : 58,
+			    "section" : 22,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+	
+			  },
+			  {
+			    "begin" : "HD31 .M6154 1998",
+			    "end" : "HD61.L43 2010",
+			    "location_x" : 172,
+			    "location_y" : 58,
+			    "section" : 23,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			  {
+			    "begin" : "HD9503 .B47 1997",
+			    "end" : "HF1371 .B76 2006",
+			    "location_x" : 172,
+			    "location_y" : 66,
+			    "section" : 24,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			  {
+			    "begin" : "HF5635 .F966 2006",
+			    "end" : "HG4028 .S7 B56 1999",
+			    "location_x" : 172,
+			    "location_y" : 78,
+			    "section" : 25,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			  {
+			    "begin" : "HM1226 A88 2002",
+			    "end" : "HQ1121 .F75 2002 V.3",
+			    "location_x" : 172,
+			    "location_y" : 85,
+			    "section" : 26,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			  {
+			    "begin" : "HV6768 .B75 2009",
+			    "end" : "HV9466 .S45 1993",
+			    "location_x" : 172,
+			    "location_y" : 97,
+			    "section" : 27,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			  {
+			    "begin" : "JX231 .D65.9 V.1",
+			    "end" : "KF5340 .L44 2005",
+			    "location_x" : 172,
+			    "location_y" : 105,
+			    "section" : 28,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			  {
+			    "begin" : "NA9030 .W74 1945",
+			    "end" : "PA260 .I3 1995",
+			    "location_x" : 172,
+			    "location_y" : 117,
+			    "section" : 29,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			  {
+			    "begin" : "PN239 .P64 C36 2008",
+			    "end" : "PN4899 .N42 W25 1993",
+			    "location_x" : 172,
+			    "location_y" : 124,
+			    "section" : 30,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			  {
+			    "begin" : "PR85 .R47 1985",
+			    "end" : "PR4557 .A1 1939",
+			    "location_x" : 172,
+			    "location_y" : 136,
+			    "section" : 31,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			  {
+			    "begin" : "PR6019 .O9 Z5252",
+			    "end" : "PS648 .C5 U73 1998",
+			    "location_x" : 172,
+			    "location_y" : 144,
+			    "section" : 32,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			  {
+			    "begin" : "PS2384 .M62 H38 1996",
+			    "end" : "PS3537 .T3234 A6 2012",
+			    "location_x" : 172,
+			    "location_y" : 156,
+			    "section" : 33,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			  {
+			    "begin" : "PS3563 .C3658 S48 2008",
+			    "end" : "QA76.73 .B3 S3584 2006",
+			    "location_x" : 172,
+			    "location_y" : 163,
+			    "section" : 34,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			  {
+			    "begin" : "QA76.73 .B3 S833974 2008",
+			    "end" : "QH75 .B5325 1995",
+			    "location_x" : 172,
+			    "location_y" : 175,
+			    "section" : 35,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			  {
+			    "begin" : "RA440.87 .U6 T626 2002",
+			    "end" : "RE661 .R45 K64 2006",
+			    "location_x" : 172,
+			    "location_y" : 182,
+			    "section" : 36,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			  {
+			    "begin" : "AC1 .G3 V.1",
+			    "end" : "BF431 .V28 2007",
+			    "location_x" : 324,
+			    "location_y" : 20,
+			    "section" : 37,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+			{
+			    "begin" : "DK171 .D44 2002",
+			    "end" : "DS712 .H458 2006",
+			    "location_x" : 324,
+			    "location_y" : 27,
+			    "section" : 38,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			},
+			{
+			    "begin" : "DS721 .C826 1988",
+			    "end" : "E183.7 .P74 2012",
+			    "location_x" : 324,
+			    "location_y" : 38,
+			    "section" : 39,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			},
+			{
+				"begin" : "HA31.3 .A44 2009",
+				"end" : "HC110 .D5 I54 1991",
+				"location_x" : 324,
+				"location_y" : 46,
+				"section" : 40,
+				"sector" : 1,
+				"size_h" : 8,
+				"size_w" : 111
+			},
+			{
+			 	"begin" : "HC110 .E44 C75 2004",
+			    "end" : "HD31 .M4567 2009",
+			    "location_x" : 324,
+			    "location_y" : 58,
+			    "section" : 41,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			},
+			{
+			    "begin" : "HF1372 .B7 2003",
+			    "end" : "HF5415.32 .T95 2006",
+			    "location_x" : 324,
+			    "location_y" : 66,
+			    "section" : 42,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			},
+			{
+			    "begin" : "HF5415 .32 .V58 2006x",
+			    "end" : "HF5635 .E225 2004",
+			    "location_x" : 324,
+			    "location_y" : 78,
+			    "section" : 43,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			},
+			{
+			    "begin" : "HQ1121 .M62 1989",
+			    "end" : "HV5824 .W6 C476 1996",
+			    "location_x" : 324,
+			    "location_y" : 85,
+			    "section" : 44,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			},
+			{
+			    "begin" : "HV5824 .W6 G66 1997",
+			    "end" : "HV6763 .E44 2002",
+			    "location_x" : 324,
+			    "location_y" : 97,
+			    "section" : 45,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			},
+			{
+			    "begin" : "KF5402 .A4 R667 2000",
+			    "end" : "ML74.4 .S66 G37 2012",
+			    "location_x" : 324,
+			    "location_y" : 105,
+			    "section" : 46,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			},
+			{
+			    "begin" : "ML82 .D3 1984",
+			    "end" : "NA9030 .W65",
+			    "location_x" : 324,
+			    "location_y" : 117,
+			    "section" : 47,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			},
+			{
+			    "begin" : "PN4899 .W29 T45 1994",
+			    "end" : "PQ2247 .B685 2006",
+			    "location_x" : 324,
+			    "location_y" : 124,
+			    "section" : 48,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 35
+			},
+			{
+			    "begin" : "PQ2247 .B7",
+			    "end" : "PR83 .M73 1966",
+			    "location_x" : 324,
+			    "location_y" : 136,
+			    "section" : 49,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 35
+			},
+			{
+			    "begin" : "PS648 .C53 S58 2006",
+			    "end" : "PS2384 .M6 P4",
+			    "location_x" : 324,
+			    "location_y" : 144,
+			    "section" : 50,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 35
+	          },
+			  {
+			    "begin" : "RG51 .B76 2008",
+			    "end" : "TS156.6 .C63 2008",
+			    "location_x" : 172,
+			    "location_y" : 336,
+			    "section" : 51,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			},
+			{
+			    "begin" : "TS156.6 .C76",
+			    "end" : "Z8504.37 .C57",
+			    "location_x" : 172,
+			    "location_y" : 336,
+			    "section" : 52,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+	
+	
+	
+			  },
+			  {
+			    "begin" : "Z8514.6 .W6",
+			    "end" : "FOLIO Z121 .P58 1973",
+			    "location_x" : 172,
+			    "location_y" : 336,
+			    "section" : 53,
+			    "sector" : 1,
+			    "size_h" : 8,
+			    "size_w" : 111
+			  },
+
+	];
+	
+
 		
 		// inspect find button
 		var findBook = document.getElementById("findBook");
