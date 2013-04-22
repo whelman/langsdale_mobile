@@ -21,7 +21,7 @@
 				</select --->
 				<p>
 					<!--- input type="text" name="term" / --->
-					<input type="search" name="term" placeholder="Find a book in the library" />
+					<input type="search" name="term" placeholder="Find an available book in the library" />
 					<input type="submit" name="submit" value="Search..." data-theme="b" />
 				</p>
 		</cfform>
