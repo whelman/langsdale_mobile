@@ -4,141 +4,114 @@
 <head>
     <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
-	<link rel="stylesheet" href="themes/ub_theme.min.css" />
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	<link rel="stylesheet" type="text/css" href="../langsdale-on-the-go.css" />
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
-	<script src="js/langsdale_mobile.js"></script>
-	<link rel="stylesheet" href="langsdale-on-the-go.css" />
-    <title>Langsdale on the Go!</title>
+	<script>
+		
+	/* // this is to reset all cookies------------------------
+		var cookies = document.cookie.split(";");
+		for (var i = 0; i < cookies.length; i++) {
+		  eraseCookie(cookies[i].split("=")[0]);
+			alert(cookies[i].split("=")[0]);
+		}
+		
+		function eraseCookie(name) {
+		    createCookie(name,"",-1);
+		}
+		
+		 function createCookie(name,value,days) {
+		    if (days) {
+		        var date = new Date();
+		        date.setTime(date.getTime()+(days*24*60*60*1000));
+		        var expires = "; expires="+date.toGMTString();
+		    }
+		    else var expires = "";
+		    document.cookie = name+"="+value+expires+"; path=/";
+		}
+	-----------------------------------------------------------*/
+
+		window.onload = init;
+		function init() {
+			// change dropdown status to 'off' if it's 'on'
+			if (document.cookie.indexOf("kioskLayoutState") >= 0) { 
+				var kioskLayoutStateTemp = readCookie("kioskLayoutState");
+				//alert(kioskLayoutStateTemp);
+				if (kioskLayoutStateTemp == "on") {
+					document.setup.kioskLayout.options[1].selected = true;
+				}
+			}
+			
+		    // loads cookie value		
+			function readCookie(name) {
+				var nameEQ = name + "=";
+				var ca = document.cookie.split(';');
+				for(var i=0;i < ca.length;i++) {
+					var c = ca[i];
+					while (c.charAt(0)==' ') c = c.substring(1,c.length);
+					if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+				}
+				return null;
+			}
+		
+		    // inspect save button
+		    var saveSetup = document.getElementById("saveSetup");
+		    saveSetup.onclick = saveTheSetup;
+		}
+		
+		function saveTheSetup() {
+			if (document.setup.kioskLayout.options[1].selected == true) {
+				selectState = "on"
+			}
+			if (document.setup.kioskLayout.options[0].selected == true) {
+				selectState = "off"
+			}
+			document.cookie = "kioskLayoutState="+selectState+"; expires=Thu, 28 Jul 2022 23:59:59 UTC; path=/";
+			alert("Settings Saved!");
+		}
+		
+	</script>
+    <title>Setup</title>
 </head>
 <body>
-	<div data-role="page" id="index">
+	<div data-role="page" data-theme="a">
 
 		<div data-role="header" data-position="fixed" id="my_header">
-			<img src="images/ub-logo.png" alt="University of Baltimore" id="ub_logo" />
-			<p id="ub_logo_text">UB</p>
-			<h1 id="title_for_ipad" style="display:none">Welcome to Langsdale</h1>
-			<h1 id="title_for_the_rest">Langsdale on the Go!</h1>
+			<a href="../index.html" data-role="button" data-inline="true" data-icon="arrow-l" data-ajax="false">Back</a>
+			<h1>Langsdale on the Go Setup</h1>
 		</div><!-- /header -->
 
 		<div data-role="content">
 			
 			<div id="mainMenu">
 			
-					<!-- BEGIN worldcat.org search box -->			
-					<form name="wcfn" id="wcfn" method="get" accept-charset="UTF-8" action="http://ubalt.worldcat.org/m/search" target="_top">
-						<input type="hidden" name="qt" value="affiliate_wcl_all" />
-						<input type="hidden" name="ai" value="wclocal_ubalt" />
-						<input type="search" name="q" id="search-basic" placeholder="Search the catalog: tap to enter subject, title or author" data-theme="d"/>
-					</form>
-					<!-- END worldcat.org search box -->
-
-					<!-- BEGIN mobile menu -->
-					<ul data-role="listview" data-inset="true" data-filter="false" id="smallMenu">
-						<li class="noInKiosk">
-							<a href="book-search.cfm" data-ajax="false"><img src="images/icon-locate-book.png" class="ui-li-icon" alt="Locate a Book" />Locate a Book </a>
-						</li>
-						<li>
-							<a href="ask-langsdale.html"  data-ajax="false"><img src="images/icon-ask-librarian.png" class="ui-li-icon" alt="Ask a Librarian" />Ask a Librarian</a>
-						</li>
-						<li>
-							<a href="floor-directory.html" data-ajax="false"><img src="images/icon-floor-directory.png" class="ui-li-icon" alt="Langsdale Floor Plan" />Floor Directory</a>
-						</li>
-						<li class="noInKiosk">
-							<a href="hours-location.html" data-ajax="false"><img src="images/icon-hours-location.png" class="ui-li-icon" alt="Hours and Locations" />Hours & Location</a>
-						</li>
-						<li class="noInKiosk">
-							<a href="find-pc.html" data-ajax="false"><img src="images/icon-find-pc.png" class="ui-li-icon" alt="Hours and Locations" />Find a PC </a>
-						</li>
-						<li class="noInKiosk">
-							<a href="how-do.html" data-ajax="false"><img src="images/icon-how-do.png" class="ui-li-icon" alt="How do I...?" />How do I...?</a>
-						</li>
-						<li>
-							<a href="reserves.html" data-ajax="false"><img src="images/icon-reserves.png" class="ui-li-icon" alt="Langsdale Floor Plan" />Print Reserves</a>
-						</li>
-						<li>
-							<a href="feedback.html" data-ajax="false"><img src="images/icon-feedback.png" class="ui-li-icon" alt="Feedback" />Feedback</a>
-						</li>
-					</ul>
-					<!-- END mobile menu -->
-			
-			
-				<!-- BEGIN large screen & kiosk menu -->
-				<ul data-role="listview" data-inset="true" id="largeMenu">
-					<li class="noInKiosk ui-body-c">
-						<a href="book-search.cfm" data-ajax="false">
-							<img src="images/icon-locate-book-large.png" alt="Locate a Book" />
-							<h3>Locate a Book</h3>
-							<p>Find books available right now</p>
-						</a>
-					</li>
-					<li class="ui-body-c">
-						<a href="ask-langsdale.html" data-ajax="false">
-							<img src="images/icon-ask-librarian-large.png" alt="Ask a Librarian" />
-							<h3>Ask a Librarian</h3>
-							<p>Chat reference.</p>
-						</a>
-					</li>
-					<li class="ui-body-c">
-						<a href="floor-directory.html" data-ajax="false">
-							<img src="images/icon-floor-directory-large.png" alt="Langsdale Floor Plan" />
-							<h3>Floor Directory</h3>
-							<p>Library maps and more.</p>
-						</a>
-					</li>
-					<li class="noInKiosk ui-body-c">
-						<a href="hours-location.html" data-ajax="false">
-							<img src="images/icon-hours-location-large.png" alt="Hours and Locations" />
-							<h3>Hours & Location</h3>
-							<p>When and where we're open.</p>
-						</a>
-					</li>
-					<li class="noInKiosk ui-body-c">
-						<a href="find-pc.html">
-							<img src="images/icon-find-pc-large.png" alt="Hours and Locations" />
-							<h3>Find a PC</h3>
-							<p>Currently available computers.</p>
-						</a>
-					</li>
-					<li class="noInKiosk ui-body-c">
-						<a href="how-do.html" data-ajax="false">
-							<img src="images/icon-how-do-large.png" alt="How do I...?" />
-							<h3>How do I...?</h3>
-							<p>Short anwswers to common questions.</p>
-						</a>
-					</li>
-					<li class="ui-body-c">
-						<a href="reserves.html" data-ajax="false">
-							<img src="images/icon-reserves-large.png" alt="Langsdale Floor Plan" />
-							<h3>Print Reserves</h3>
-							<p>The books and DVDs you need for class.</p>
-						</a>
-					</li>
-					<li class="ui-body-c">
-						<a href="feedback.html" data-ajax="false">
-							<img src="images/icon-feedback-large.png" alt="Feedback" />
-							<h3>Feedback</h3>
-							<p>What's on your mind?</p>
-						</a>
-					</li>
-				</ul>
-				<!-- BEGIN large screen & kiosk menu -->
+			<h1><img src="../images/icon-setup-inverse.png" alt="Setup" align="left" />&nbsp;Setup</h1>
+			<hr>
+			<br />
+			<form name="setup">
+				<div data-role="fieldcontain">
+					<label for="kioskLayout">Kiosk layout:</label>
+					<select name="kioskLayout" id="kioskLayout" data-role="none">
+						<option value="off">Off</option>
+						<option value="on">On</option>
+					</select>
+				</div>
+			</form>
+			<br />
+			<hr>
+			<br />
+			<input type="button" id="saveSetup" value="Save Setup" data-theme="b" />
 			
 			</div>
 			
 		</div><!-- /content -->
 		
-		<div data-role="footer" data-position="fixed" id="myFooter">
-			<div data-role="navbar">
-				<ul>
-					<li><a href="index.html" data-icon="home" class="ui-btn-active" data-ajax="false">Home</a></li>
-					<li><a href="http://langsdale.ubalt.edu" data-icon="grid" data-ajax="false">Full site</a></li> 
-				</ul>
-			</div><!-- /navbar -->
+		<div data-role="footer" data-position="fixed">
+			<h1>2012</h1>
 		</div><!-- /footer -->
 
 	</div><!-- /page -->
+	
 </body>
 </html>
-
